@@ -1,0 +1,286 @@
+\section{無限乗積}
+
+無限乗積$\displaystyle	\prod_{n=0}^\infty	z_n$の収束は
+(1.3.10)で定義した，すなわち
+\begin{list}{}{}
+	\item	（ⅰ）ある$n_0$が存在して，任意の$n	\geqq		n_0$，$z_n	\ne	0$について
+	\item	（ⅱ）数列$\displaystyle	\prod_{n=n_0}^{n_0+n}	z_n$は\underline{$0$でない数に}収束する．
+\end{list}
+
+これが収束しているならば
+\[
+	\lim_{n\rightarrow	\infty}
+	z_n	=1.
+\]
+そこで無限乗積の収束を調べるには$z_n$をあらためて$(1+z_n)$として
+$\displaystyle	\prod_{n=0}^\infty	(1+z_n)$を調べる方が便利である．
+$\displaystyle	\prod_{n=0}^\infty	(1+z_n)$が収束しているとすると，
+$\lim	z_n	=	0$であり，$n_0$を十分大きくとれば
+$n	\geqq	n_0$に対し，
+\begin{align*}
+	|z_n|	\leqq	1/2	\quad	\text{かつ}	\quad
+	\left|
+		\prod_{j=n_0}^n	(1+z_j)	-	1
+	\right|
+	<	\frac{1}{2}.	
+\end{align*}
+よって，$1	+	z_n,	\displaystyle	\prod_{j=n_0}^n	(1+z_n),	\prod_{j=n_0}^\infty	(1+z_n)$は
+対数関数$\log$の定義域$\Delta (1;1)$に入り（（\ref{eq2x5x5})をみよ）
+\begin{align*}
+	\sum_{j=n_0}^n	\log	(1+z_j)
+	&=
+	\log	\left(
+					\prod_{j=n_0}^n	(1+z_j)
+				\right)	\\
+	&	\rightarrow
+	\log	\prod_{j=n_0}^\infty	(1+z_j)	\:	(n	\rightarrow	\infty).
+\end{align*}
+\注意{}
+\begin{align*}
+	zw	&=	|z||w|	e^{i	(\arg	z	+	\arg	w	+	2	k	\pi)}
+				=	e^{\log	|z||w|}	e^{i	(\arg	z	+	\arg	w	+	2	k	\pi)}	\\
+			&=	e^{\log	|z|+\log	|w|	+	i(\arg	z	+	\arg	w	+	2	k	\pi)},	\\
+	zw	&=	e^{\log	(zw)	},	\quad	zw	\in	\Delta(1:1),	\\
+\therefore	\quad
+	\log	(zw)	&=	\log	|z|	+	\log	|w|	+	i(\arg	z	+	\arg	w	+	2k\pi)	\\
+							&=	\log	|z|	+	\log	|w|	+	i(\arg	z	+	\arg	w)	\quad	\mod	2k\pi	\\
+							&=	\log	|z|	+i	\arg	z	+	\log	|w|	+	i\arg	w	\quad	\mod	2k	\pi	\\
+							&=	\log	z	+	\log	w	\quad	\mod	2k	\pi	\\
+\end{align*}
+一方，ある$n_0$に対し，$n	\geqq	n_0$ならば$|z_n|	<	1,$かつ$\sum_{j=n_0}^\infty	\log(1+z_j)$が
+収束していれば，
+\begin{align*}
+	&\Longrightarrow	\log	(	1	+	z_j)	\rightarrow	0	\quad	(j	\rightarrow	\infty)	\\
+	&\Longrightarrow	1	+	z_n	=	e^{\log	(1+z_n)}	\rightarrow	e^0	=	1	\:	(n	\rightarrow	\infty)	\\
+	&\therefore	\quad	1+	z_0	\rightarrow	1	\quad	(n	\rightarrow	\infty)	\\
+\end{align*}
+であるから，$\displaystyle	\lim_{n\rightarrow	\infty}	z_n	=	0$となり
+\begin{align}
+	\prod_{j=n_0}^n	(1+z_n)	
+	&=	\exp	\left(	\sum_{j=n_0}^n	\log	(1+z_j)	\right)	\notag	\\
+	&\rightarrow	\exp	\left(	\sum_{j=n_0}^\infty	\log	(1+z_j)	\right)	\ne	0	\quad	(	n	\rightarrow	\infty)
+	\label{eq2x6x1}
+\end{align}
+ここで任意の$\exp()	\ne	$は$e^z	\ne	0$であることを用いている．
+\begin{align*}
+	\because \quad	e^z			&=	e^{i	(1/i\cdot	z)}	=	e^{i	(-i	z)}	=	\cos	(-iz)	+	i\sin	(-iz)	\\
+									e^{-z}	&=	e^{i	(-1/i\cdot	z)}	=	e^{i	(i	z)}	=	\cos	(iz)	+	i\sin	(iz)	\\
+	\therefore \quad	e^z	\cdot	e^{-z}	&=	1	\Longrightarrow	e^z	\ne	0	\ne	e^{-z}.
+\end{align*}
+
+したがって無限乗積$\prod_{n=0}^\infty	(1+z_n)$は収束している．よってつぎの定理が示された．
+
+\定理{(2.6.2)}
+無限乗積$\prod_{n=0}^\infty	(1+z_n)	$が収束することと次の条件は同値である：
+\begin{list}{}{}
+	\item	ある番号$n_0$があって，$n	\geqq	n_0$に対し$|z_n|	<	1$，かつ
+	\item	$\sum_{n=n_0}^\infty	\log	(1+z_n)$が収束する．
+\end{list}
+このことから無限乗積$\displaystyle	\prod_{n=0}^\infty	(1+z_n)$が\textbf{絶対収束}することを，
+十分におおきな$n_0$に対し
+\begin{align*}
+				\sum_{j=n_0}^\infty	|\log	(1+z_j)|
+				<	+	\infty
+\end{align*}
+と定義する．(\ref{eq2x5x3})より
+\begin{align*}
+	|\log	(1+z)|	&=	\left|
+										z	\sum_{n=0}^\infty	\frac{(-1)^n}{n+1}	z^n
+									\right|	\\
+								&=|z|	\cdot	
+										\left|
+											1	+	\frac{1}{2}
+											\sum_{n=1}^\infty	\frac{2}{n+1}	(-1)^n	z^n
+										\right|.
+\end{align*}
+$|z|	\leqq	1/2$の場合，
+\begin{align*}
+	\left|
+		\frac{1}{2}	
+		\sum_{n=1}^\infty
+			\frac{2}{n+1}	(-1)^n	z^n
+	\right|
+	&\leqq
+	\left|
+		\frac{1}{2}	
+			\left(
+				\frac{2}{1+1}	\left(\frac{1}{2}\right)		+	
+				\frac{2}{2+1}	\left(\frac{1}{2}\right)^2	+
+				\frac{2}{3+1}	\left(\frac{1}{2}\right)^3	+	\cdots	+
+				\frac{2}{n+1}	\left(\frac{1}{2}\right)^n
+				+	\cdots
+			\right)
+	\right|	\\
+	&\leqq
+	\left|
+		\frac{1}{4}	
+			\left(
+				\frac{2}{1+1}	+	
+				\frac{2}{2+1}	\left(\frac{1}{2}\right)	+
+				\frac{2}{3+1}	\left(\frac{1}{2}\right)^2	+	\cdots	+
+				\frac{2}{n+1}	\left(\frac{1}{2}\right)^{n-1}
+				+	\cdots
+			\right)
+	\right|	\\
+	&\leqq
+	\left|
+		\frac{1}{4}	
+			\left(
+				1	+	
+				\left(\frac{1}{2}\right)		+
+				\left(\frac{1}{2}\right)^2	+	\cdots	+
+				\left(\frac{1}{2}\right)^{n-1}
+				+	\cdots
+			\right)
+	\right|	\\
+	&=
+	\frac{1}{4}
+	\sum_{n=0}^\infty
+		\left(
+			\frac{1}{2}
+		\right)^n	\\
+	&=	\frac{1}{2}	
+\end{align*}
+であるから
+\begin{equation}
+	\frac{1}{2}	|z|	\leqq	|\log	(1+z)|	\leqq	\frac{3}{2}	|z|,	
+	\quad	z	\in	\Delta \left(\frac{1}{2}	\right).
+	\label{eq2x6x3}
+\end{equation}
+
+\pagebreak
+\定理{(2.6.4)$\label{eq2x6x4}$}
+\begin{list}{}{}
+	\item	ⅰ）絶対収束する無限乗積は収束する．
+	\item	ⅱ）絶対収束する無限乗積は，積の順序を変更しても絶対収束し，極限値は変わらない．
+	\item	ⅲ）無限乗積$\displaystyle	\prod_{n=0}^\infty	(1+z_n)$が絶対収束することと，
+						$\displaystyle	\sum_{n=0}^\infty	|z_n|$が収束することとは同値である．
+\end{list}
+\証明
+（$\log$の分岐の点を厳密に検討する必要がある，『複素関数論入門』p112，命題5.1付近，保留）
+ⅰ）これは(\ref{eq2x6x1})と定理(1.3.8)，ⅱ）．
+ⅱ）これは(\ref{eq2x6x1})と定理(1.3.8)，ⅳ）より直ちにでる．
+ⅲ）定義と(\ref{2x6x3})より明らかである．
+\■
+
+つぎに$\{f_n\}_{n=0}^\infty$を$A	\subset	\C$上の関数列とする．
+形式的に積の形$\displaystyle	\prod_{n=0}^\infty	f_n$で表したものを
+\textbf{関数の無限乗積}という．$z	\in	A$で$\prod_{n=0}^\infty	f_n(z)$が収束するとき，
+$\prod_{n=0}^\infty	f_n$は$z$で収束するという．$A$の任意の点で収束するとき，
+$\displaystyle	\prod_{n=0}^\infty	f_n$は$A$上で収束するといい，
+その極限関数も$\displaystyle	\prod_{n=0}^\infty	f_n$で表す．
+$\displaystyle	\prod_{n=0}^\infty	f_n$が$A$上\textbf{一様収束}するとは，
+つぎが成立することとする：
+\begin{list}{}{}
+	\item	ⅰ）ある番号$n_0$が存在して，$n	\geqq	n_0$と任意の$z	\in	A$に対し，つねに$f_n(z)	\ne	0$
+	\item	ⅱ）$\{ \prod_{n=n_0}^{n_0+m}	f_n \}_{m=0}^\infty	
+								=	\{	f_{n_0},	
+											f_{n_0}	\cdot	f_{n_0+1},
+											f_{n_0}	\cdot	f_{n_0+1}	\cdot	f_{n_0	+	2},
+											\cdots
+									\}
+						$が$A$上$0$をとらない関数に一様収束する．
+\end{list}
+もし各$f_n$が$A$上連続で，$\displaystyle	\prod_{n=0}^\infty	f_n$が一様収束ならば，
+極限関数は連続である（定理2.2.5）．
+
+\定理{(2.6.5)$\label{eq2x6x5}$}
+$A$上の関数の無限乗積$\displaystyle	\prod_{n=0}^\infty	f_n$が一様収束するために，
+つぎの条件は必要十分である：
+\begin{list}{}{}
+	\item	任意の$\varepsilon >0$に対し，ある番号$n_0$が存在して，すべての$n	>m	\geqq	n_0$と
+	\item	$	z	\in	A$に対し
+				\[
+					\left|\prod_{j=m}^n	f_j(z)-1	\right|
+					<	\varepsilon .
+				\]
+\end{list}
+\証明
+$A$上一様に$f_n	\rightarrow	1	\:	(n	\rightarrow	\infty)$であることに注意し，
+定理(1.3.11),	ⅱ)と同様に議論する．
+\■
+
+開集合上の関数$f_n$の無限乗積$\displaystyle	\prod_{n=0}^\infty	f_n$に関する
+広義一様収束も，関数列や関数項級数の場合と同様に定義される．このとき，もし
+各$f_n$が連続であれば極限関数も連続である．定義と(\ref{eq2x6x3})よりつぎがわかる．
+
+\pagebreak
+\定理{(2.6.6)}
+$A$上の関数項級数$\displaystyle	\sum_{n=0}^\infty	f_n$が絶対収束
+（一様収束）することと，関数の無限乗積$\displaystyle	\prod_{n=0}^\infty	(1+f_n)$が
+絶対収束（一様収束）することとは同値である．
+
+\問{1}
+上の定理を証明せよ．
+
+\証明
+(1)	$z	\in	A$とする．定理2.6.4，ⅲ)によって
+\[
+	\sum_{n=0}^{\infty}	f_n(z)	\text{が絶対収束する}
+	\Longleftrightarrow
+	\prod_{n=0}^{\infty}	(1+f_n(z))	\text{が絶対収束する}
+\]
+したがって
+\[
+	\sum_{n=0}^{\infty}	f_n	\text{が絶対収束する}
+	\Longleftrightarrow
+	\prod_{n=0}^{\infty}	(1+f_n)	\text{が絶対収束する}
+\]
+(2) (十分性）$\displaystyle	\sum_{n=0}^\infty	f_n$を一様かつ絶対収束と仮定する．
+\[	S_n(z)	=	\sum_{k=0}^n	f_k(z)	\quad	(n=0,1,2,	\cdots),	\quad
+		S(z)		=	\sum_{k=0}^\infty	f_k(z)
+\]
+とおくと，
+$n	\geqq	n_0(\varepsilon )$ならば，
+任意の$\varepsilon >	0$と任意の$z	\in	A$に対して，$|S_n(z)	-	S(z)|	<	\varepsilon$
+となるような$n_0(\varepsilon )$を選ぶことができる．
+このとき，$m	>	n	\geqq	n_0(\varepsilon )$ならば，
+任意の$\varepsilon >	0$と任意の$z	\in	A$に対して，$|f_{n+1}(z)	+	f_{n+2}(z)	+	\cdots	+f_m(z)|	<	\varepsilon$
+となるような$n_0(\varepsilon )$を選ぶことができる．
+$m=n+1$とすると，$|f_m(z)	|	<	\varepsilon 	\quad	(z	\in	A)$，
+さらに$\displaystyle	0	<	\varepsilon <	\frac{1}{2}$とすると$\displaystyle	|1	+	f_m(z)	|	\ne	0$,
+$z	\in	A$であるから，
+$\prod_{n=0}^{\infty}	(1	+	f_n)$が一様収束するための条件ⅰ）を満たす．
+
+次に(\ref{eq2x6x3})
+\[
+	\frac{1}{2}	|z|	\leqq	|\log	(1+z)|	\leqq	\frac{3}{2}	|z|,	
+	\quad	z	\in	\Delta \left(\frac{1}{2}	\right).
+\]
+より，
+\[
+	\frac{1}{2}|f_j(z)|	\leqq	|	\log	(1+	f_j(z))	|	\leqq	\frac{3}{2}	|	f_j(z)|
+	\quad	0	\leqq	|f_j(z)|	\leqq	\frac{1}{2}
+\]
+が導かれ，さらに
+\[
+\Longrightarrow
+	\sum_{n=n_0}^\infty	|f_j(z)|	\leqq	2	\sum_{n=n_0}^{\infty}	|	\log	(1+	f_j(z))	|
+	\quad	(<	\infty)
+\]
+と
+\[
+\Longrightarrow
+	\sum_{n=n_0}^{\infty}	|	\log	(1+	f_j(z))	|	\leqq	\frac{3}{2}	\sum_{n=n_0}^\infty	|f_j(z)|
+	\quad	(<	\infty)
+\]
+の2不等式が導かれ，一方が収束していれば，他方が収束していることがわかる．このことと
+定理2.6.2の結論に基づく定義より命題が示される．
+\■
+
+\pagebreak
+\問{2}
+無限乗積$\displaystyle	\prod_{n=1}^\infty\left(1	-	\frac{z}{n^2}	\right )$
+は$\C$上広義一様収束する．
+
+\証明
+定理2.6.6より
+$\displaystyle	\sum_{n=1}^\infty	\frac{z}{n}	$が$\C$上で広義一様収束する
+$\Longleftrightarrow$
+$\displaystyle		\sum_{n=1}^{\infty}	\frac{z}{n^2}$が$\C$上で広義一様収束する（☆）．
+
+よって（☆）を示せばよい．$z$を固定すると
+$\displaystyle	\sum_{n=1}^{\infty}	\frac{|z|}{n^2}	=	|z|	\sum_{n=1}^{\infty}	\frac{1}{n^2}	<	\infty$
+であるが$A	=	\Delta (r)$とおくと，$\sum_{n=1}^{\infty}	\frac{z}{n^2}$は$A$上で一様収束する．
+$r$は任意であるから（☆）が示される．
+\■

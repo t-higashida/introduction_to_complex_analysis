@@ -1,0 +1,62 @@
+\chapter{複素数}
+
+実数については既知のものとし，この章では複素数の基本的事項を
+解説してゆく．
+
+
+\section{複素数}
+実数の全体$\R$は，その順序（大小関係）“$\leqq$”と
+アルキメデス公理を保持する限り，より大きな数の体系に拡大できない
+（実数体系の完備性）．その順序の性質により，
+任意の実数$x \in \R$に対し$x^2 \geqq 0$が成立する．
+したがって，次の簡単な代数方程式
+\begin{equation}
+	x^2 + \alpha = 0
+  \label{eq1x1x1}
+\end{equation}
+は，$\alpha > 0$のとき実数の範囲では解けないことになる．この不都合を
+除くため，$\R$の順序を捨て，(\ref{eq1x1x1})おいて$\alpha=1$と
+正規化した方程式の解$i (=\sqrt{-1}$を加えることにより$\R$を拡大したのが
+\textbf{複素数}$z = x+ iy$ ($x,y \in \R$)である．
+
+（保留）
+
+複素数$z = x + iy$を表わすのに，三角関数$\cos \theta, \: \sin \theta$を
+用いて次のように表せる：
+\begin{align*}
+	z = x + iy &= r (\cos \theta + i \sin \theta), \\
+             &= r (\cos (\theta + 2 k \pi) + i \sin (\theta + 2 k \pi))
+\end{align*}
+このとき$r$は
+\begin{equation}
+ r = |z|=\sqrt{x^2+y^2} \geqq 0.
+ \label{eq1x1x6}
+\end{equation}
+である．また
+$\theta$は$\displaystyle\tan \theta = \frac{y}{x}$であるから，
+\[
+  \theta = \tan^{-1} \frac{y}{x}
+         = \theta + 2k\pi, \quad(\pi = 0, \pm 1 , \pm 2, \cdots),
+                           \quad \theta \in \R
+\]
+である．この$\theta$を$z$の\textbf{偏角}とよび$\arg z$と書くが，
+一意的に定まらない．
+$ -\pi < \theta <\leqq \pi$，$0 \leqq \theta < 2 \pi$のように範囲を定めると，
+一意的（1価）となる．このとき$\Arg z$と書き，\textbf{主値}という．
+
+$\theta$は$z \ne 0 \: ( \Leftrightarrow r \ne 0)$である限り，
+$2 \pi$の整数倍を除いて（これを“$2\pi$を法として”という）
+一意的に定まる．
+\begin{figure}[b]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=8cm,height=6cm]{fig2.bmp}
+	\caption{}
+	\label{fig2}
+\end{figure}
+
+\注意{}
+ここでは三角関数$\cos \theta, \sin \theta$を幾何学的直観により扱った．
+これは実数の性質のみを仮定して，理論を厳密に構成しようとするわれわれの
+立場に反する．直観に依らずに三角関数を
+定義し，それらが周期性をもちかつ上述のような幾何学的直観を記述するということを
+証明しなければならない．これは第2章§5で扱われる．

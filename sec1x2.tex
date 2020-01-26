@@ -1,0 +1,483 @@
+\section{平面位相}
+
+複素平面の点$a	\in	\C$と実数$r	>	0$に対して
+\[
+	\Delta(a;r)	=	\{	z	\in	\C	\:	;	\;	d(z,a)	<	r	\}
+	\quad
+	(\{z-a|	<	r	\})
+\]
+とおき，これを中心$a$，半径$r$の\textbf{円板}とよぶ．とくに$a=0$のとき
+\[
+	\Delta	(r)	=	\Delta	(0;r)
+\]
+とおき，$\Delta(1)$を\textbf{単位円板}とよぶ．
+
+部分集合$A	\subset	\C$が，\textbf{有界}であるとは，ある$r	>	0$が存在して
+$A	\subset	\Delta(r)$となることとする．また，$A$が\textbf{開集合(open set)}
+であるとは，任意の元$a	\in	A$に対しある$r	>	0$が存在して
+$\Delta(a;r)	\subset	A$ととなること（任意の元$a$が$A$の内点であること）
+と定義する．点$z	\in	\C$を含む
+開集合$U$を$z$の\textbf{近傍}という．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=6cm,height=6cm]{fig3.bmp}
+	\caption{近傍}
+	\label{fig3}
+\end{figure}
+
+また部分集合$B	\subset	\C$を含む開集合を$B$の\textbf{近傍}とよぶ．
+$\Delta(a;r)$自身は開集合である．なぜならば任意の$z	\in	\Delta(a;r)$に対し
+$\Delta(z;	r-|z-a|)	\subset	\Delta(a;r)$.
+このことから$\Delta	(a;r)$を$a$の\textbf{円板近傍}とも呼ぶ．
+
+$\C$の開部分集合の全体を$\mathscr{A}$と書くと，つぎが成立する：
+\begin{list}{}{}
+	\item	ⅰ)	$\varphi	\in	\mathscr{A},	\C	\in	\mathscr{A}.$
+	\item	ⅱ)	有限個の$A_1,\cdots	A_n	\in	\mathscr{A}$に対し,
+						$A_1	\cap	\cdots	\cap	A_n	\in	\mathscr{A}$
+	\item	ⅲ) 任意の部分集合$\{A_\alpha	\}_{\alpha	\in	\Gamma}	\subset	\mathscr{A}$
+						に対し$\bigcup_{a	\in	\Gamma}	A_\alpha	\in	\mathscr{A}.\label{eq1.2.1}
+$
+\end{list}
+一般に(\ref{eq1.2.1})，ⅰ)～ⅲ)を満たす部分集合族を定めることを\textbf{位相}を定義するという．
+$A	\subset	\C$が\textbf{閉集合(close set)}であるとは，その補集合$A^C$が開集合であることと定義する．
+また$z	\in	\C$が$A$の\textbf{集積点}であるとは，任意の$r	>	0$に対し
+\[
+	(\Delta(z;r) \setminus	\{z\}	)	\cap	A	\ne	\varnothing
+\]
+となることとする．$A$の点で$A$の集積点でない点を$A$の\textbf{孤立点}という．
+$A$の点と$A$の集積点の全体を$\overline{A}$と表す．$\overline{A}$は$A$の\textbf{閉包(closure)}と呼ばれる．
+理由は次の定理による．
+
+\pagebreak
+\定理{ (1.2.2)}
+\begin{list}{}{}
+	\item	ⅰ)　$A	\subset	\C$が閉集合であることと$A	=\overline{A}$は同値である．
+	\item	ⅱ)　$\overline{\overline{A}}=\overline{A}$.
+	\item	ⅲ)　$\overline{A}$は$A$を含む閉集合の中で最小のものである．
+\end{list}
+\証明
+ⅰ)	$A$を閉集合と仮定する．$a$を$\overline{A}$の任意の集積点とする．
+もし$a	\notin	A$とすると$a	\in	A^c$となる．仮定よりある$r	>	0$に対し
+$\Delta	(a;r)	\subset	A^C$，すなわち$\Delta	(a;r)	\cap	A	=	\varnothing$となり，
+矛盾を得る．よって$A	=	\overline{A}$．
+
+逆を示そう．任意に$z	\notin	A$をとる．仮定より$z$は$A$の集積点でもない．
+したがって，ある$r	>	0$に対し$\Delta	(z	;	r)	\cap	A	\ne	\varnothing$．
+つまり$\Delta	(z	;	r)	\subset	A^c$であり，
+これは$A^C$が開集合であることを示している．
+
+ⅱ)	$\overline{\overline{A}}	\subset	\overline{A}$を示せばよい．
+任意に$z	\in	\overline{\overline{A}}$をとる．任意の$r	>	0$に対し
+\[
+	(\Delta	(	z	;	r)	\setminus	\{	z	\}	)	\cap	\overline{A}	\ne	\varnothing
+\]
+であるから，$z_1\in	(\Delta	(z;r)\setminus	\{z\})	\cap	\overline{A}$をとれる．
+$r_1	=	\min	\{	r-|z_1-z|	,|z_1	-	z|\}	>	0$とおく．
+$z_1	\in	\overline{A}$であるから
+\[
+	(\Delta	(	z_1	;	r_1)	\setminus	\{	z_1	\})	\cap	A	\ne\varnothing.
+\]
+したがって
+\[
+	(\Delta	(	z_1	;	r_1)	\setminus	\{z_1\})	\cap	A	
+	\subset	
+	(\Delta	(	z	;	r)	\setminus	\{z\})	\cap	A	
+	\ne	\varnothing
+\]
+よって
+$z	\in	\overline{A}$.
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=12cm,height=6cm]{fig4.bmp}
+	\label{fig4}
+\end{figure}
+
+ⅲ)　任意に閉集合$E$を$E	\supset	A$ととる．$E	\supset	\overline{A}$を示せばよい．
+$	z	\in	\overline{A},z	\notin	A$とする．任意の$r>0$に対して
+$\Delta(z;r)\setminus	\{z\}	\cap	A	\ne	\varnothing$．$A	\subset	E$より，
+$\Delta(z;r)\setminus	\{z\}	\cap	E	\ne	\varnothing$．
+したがって$z	\in	\overline{E}$である．$E$は閉集合であるからⅰ)より，
+$z	\in	\overline{E}=E$．よって，$\overline{A}	\subset	E$．
+\■
+
+部分集合$A	\subset	\C$に対し，$z	\in	A$が$A$の\textbf{内点}であるとは
+$z$の近傍$U$で，$U	\subset	A$となるものが存在することとする．
+したがって$A$の内点の全体は$\ring{A}$は開集合である．$A^C$のない点を$A$の\textbf{外点}
+とよぶ．また$\partial	A	=	\overline{A}	\setminus	\ring{A}$を$A$の\textbf{境界}とよび，
+その点を$A$の\textbf{境界点}とよぶ．とくに，$\partial	A$は閉集合である．
+
+$A$の部分集合$B$が\textbf{$A$内の開集合}であるとは，ある開集合$U	\subset	\C$があって
+$B	=	A	\cap	U$と書けることである．同様に$B$が\textbf{$A$内の閉集合}であるとは，
+ある閉集合$E	\subset	\C$があって$B	=	A	\cap	E$と書けることである．これを
+$A$の\textbf{相対位相}とよぶ．
+
+$B$が$A$内の開（または閉）集合ならば，$A	\setminus	B$は$A$内の閉（または開）集合である．
+
+\証明
+($\Longrightarrow$)$B$を$A$内の開集合とする．
+このとき，ある開集合$U	\subset	\C$が存在して$B=A\cap	U$である．
+\begin{align*}
+	A	\setminus	B	&	=	A	\cap	B^C	
+									=	A	\cap	(A	\cap	U)^C	
+									=	A	\cap	(A^C	\cup	U^C)
+									=	(A	\cap	A^C)	\cup	(A	\cap	U^C)
+									=	A	\cap	U^C
+\end{align*}
+ここで$U^C$は閉集合であるから，$A	\setminus	B$は$A$内の閉集合である．
+
+($\Longleftarrow$)
+$A	\setminus	B$を$A$の閉集合とする（$B	\subset A$は仮定する)
+このときある閉集合$E	\subset	\C$が存在して$A	\setminus	B=A	\cap	E$となる．
+\begin{align*}
+	A	\cap	B^C	=	A	\cap	E
+	&	\Rightarrow
+	(A	\cap	B^C)^C	=	(A	\cap	E)^C
+	\Rightarrow
+	A^C	\cup	B	=	A^C	\cup	E^C	\\
+	&	\Rightarrow
+	A	\cap	(A^C	\cup	B)	=	A	\cap	(A^C	\cup	E^C)
+	\Rightarrow
+	(A	\cap	A^C)	\cup	(A	\cap	B)	=	(A	\cap	A^C)	\cup	(A	\cup	E^C)	\\
+	&\Rightarrow
+	A	\cap	B	=	A	\cup	E^C	\\
+	&\Rightarrow
+	B	=	A	\cup	E^C	\quad	\text{($B	\subset	A$より)}
+\end{align*}
+\■
+$B$が$A$内で集積点をもたないとき，$B$は$A$の\textbf{離散的部分集合}であるという．
+一般に$A	\subset	\C$に対し，$\C$の部分集合の族$\{U_\alpha\}_{\alpha	\in	\Gamma}$が$A$の
+\textbf{被覆}であるとは$A	\subset	\bigcup_{\alpha	\in	\Gamma}	U_\alpha$の成り立つことである．
+とくにすべての$U_\alpha$が開集合であるとき，これを\textbf{開被覆}とよぶ．このとき
+$A	=	\bigcup_{\alpha	\in	\Gamma}	(U_\alpha	\cap	A)$なので
+$\{U_\alpha	\cap	A\}_{\alpha	\in	\Gamma}$も$A$の（相対位相に関する）開被覆とよばれる．
+
+$A$の開被覆$\{U_1,U_2\}$で，
+\begin{align}
+	U_1	\cap	A	\ne	\varnothing,	\quad
+	U_2	\cap	A	\ne	\varnothing,	\quad
+	U_1	\cap	U_2	\cap	A	=	\varnothing
+\end{align}
+を満たすものが存在するとき，$A$は\textbf{不連結}であるという．
+$A$が不連結でないとき，$A$は\textbf{連結}であると定義する．
+連結な開集合を\textbf{領域}とよぶ．
+
+\定理{(1.2.4)}次の3条件は同値である．
+\begin{list}{}{}
+	\item	ⅰ)	$A$は連結である．
+	\item	ⅱ)	$\{U_1,U_2\}$を$A$の相対位相に関する開被覆で，$U_1	\cap	U_2=\varnothing$とすると，
+						$U_1=A	\:	(U_2	=	\varnothing)$または$U_2=A	\:	(U_1	=	\varnothing)$. 
+	\item ⅲ)	$A$の非空部分集合$B$が$A$内の開かつ閉集合ならば，$B=A$．
+\end{list}
+
+\証明
+ⅰ)	$\Longrightarrow$	ⅱ)
+$A$は不連結でないので，$A$の任意の開被覆$\{U_1,U_2\}$は，
+\[
+	U_1	\cap	A	=	\varnothing	\quad	\text{または}	\quad	
+	U_2	\cap	A	=	\varnothing	\quad	\text{または}	\quad
+	U_1	\cap	U_2	\cap	A	\ne	\varnothing	\quad	\text{(☆)}
+\]
+ⅱ)の仮定より$U_1	\cap	U_2	\cap	A	=	\varnothing$であるから，
+(☆)は
+\[
+	U_1	\cap	A	=	\varnothing	\quad	\text{または}	\quad	
+	U_2	\cap	A	=	\varnothing	\quad	\text{(☆)}
+\]
+$\{U_1,U_2\}$は$A$の開被覆であるから$A=U_1	\cup	U_2$である．よって(☆)は，
+\[
+	U_1	=	A	\text{または}	\quad	U_2=A	\quad	\text{(☆)}
+\]
+
+ⅱ)	$\Longrightarrow$	ⅰ)
+$\{U_1,U_2\}$を$A$の相対位相に関する任意の開被覆とする($A=U_1	\cup	U_2$).
+ⅱ)より
+\[
+	U_1	\cap	U_2	=	\varnothing	\Rightarrow	U_1=A	\quad	\text{または}	\quad	U_2=A
+\]
+したがって，
+任意の開被覆$\{U_1,U_2\}$について（論理式を書き下すと）
+\[
+	U_1=A	\quad	\text{または}	\quad	
+	U_2=A	\quad	\text{または}	\quad
+	U_1	\cap	U_2	\ne	\varnothing
+\]
+ⅱ)の仮定より$U_1	\cap	U_2	=A$だから，
+\[
+	U_1	\cap	A=\varnothing	\quad	\text{または}	\quad	
+	U_2	\cap	A=\varnothing	\quad	\text{または}	\quad
+	U_1	\cap	U_2	\ne	\varnothing
+\]
+したがって$A$は連結である．
+
+ⅱ)	$\Longrightarrow$	ⅲ)　$U_1=B$，$U_2=A	\setminus	B$とおくと
+$U_1	\cup	U_2	=	B	\cup	(A	\setminus	B)	=	A		,\:	U_1	\cap	U_2	=	B	\cap	(A	\setminus	B)	=\varnothing$．
+したがってⅱ）より$B=A$または$B=\varnothing$，ⅲ)の仮定より$B	\ne	\varnothing$であるから，
+$B=A$．
+
+ⅲ)	$\Longrightarrow$	ⅱ)　$A$の開被覆$\{U_1,U_2\}$のうち$U_i$の何れかは空でない．
+空集合でない方の$U_i$を$B$とする．各$U_i$は開集合であり，ⅱ)の仮定より$U_1	\cap	U_2	=	\varnothing$，
+であるから$U_1^C=U_2$，$U_2^C=U_1$で各$U_i$は閉集合である．空でない$U_i=B$は開集合かつ閉集合であるから，
+ⅲ)より$B=U_i=A$．したがって$U_1=A$または$U_2=A$	
+\■
+
+$\R$の有界閉区間$I$上の実数値連続関数$x(t)$，$y(t)$をもって，
+$\varphi(t)=x(t)	+	iy(t)$と表される写像$\varphi	:	I	\rightarrow	\C$を
+\textbf{曲線}または\textbf{弧}とよぶ．
+$I$が一般の区間(開区間，半開区間など)のとき，それを\textbf{一般の曲線}とよぶ．
+像$C=\varphi(I)$も\textbf{曲線}とよぶ．しかし厳密に写像$\varphi$を曲線とよぶべきで，
+”$C$は$\varphi$であたえられる”ということにする．
+
+実際
+\begin{align*}
+	&\varphi_1	:	[0,2	\pi]	\ni	t	\rightarrow	\cos	t		+	i	\sin	t		\in	C,	\\
+	&\varphi_2	:	[0,2	\pi]	\ni	t	\rightarrow	\cos	2t	+	i	\sin	2t	\in	C
+\end{align*}
+は，$\varphi_1([0,2\pi])=\varphi([0,2\pi])$であるが，
+$\varphi_1$は単位円を1周，$\varphi_2$は2周回っており，区別されるべきである．
+変数$t$を$\varphi$の\textbf{パラメータ}とよぶ．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=8cm,height=6cm]{fig5.bmp}
+	\label{fig5}
+\end{figure}
+
+曲線$\psi	:	J	\rightarrow	\C$が曲線$\varphi$の\textbf{パラメータ変更}であるとは，
+有界閉区間の間の狭義（強義）単調連続かつ上への写像$\tau	:	J	\rightarrow	I$が
+存在して，$\psi(s)=\varphi	(	\tau(s))$，$s	\in	J$，が成り立つこととする．
+
+例えば$\tau(s):	[0,\pi]	\rightarrow	[0,2\pi];s	\mapsto	2\pi$とすると，
+$\varphi_2(s)=\cos	2s	+	i	\sin	2s	=	\varphi_1(\tau	(s)),	\:	s	\in	[0,\pi]$
+となり，$\varphi_2$は$\varphi_1$のパラメータ変更である．
+
+$I=[T_0,T_1]$で$\varphi(T_0)=\varphi(T_1)$のとき，$\varphi$は\textbf{閉曲線}とよばれる．
+この場合は$\varphi$のパラメータ変更として次のものも考える．
+$J=[S_0,S_1]	\:	(S_0	<	S_1)$を任意の閉区間とし
+$\tau_o	\in	(T_0,T_1)$，$\sigma_0	\in	(S_0,S_1)$を任意にとめる．
+このとき
+\[
+	\tau:I	\rightarrow	J;
+	s	\mapsto
+	\begin{cases}
+			\displaystyle	\tau_0	+	\frac{s	-	S_0}{\sigma_0	-	S_0}(T_1	-	\tau_0),	\quad	S_0	\leqq	s	\leqq	\sigma_0,	\\
+			\displaystyle	T_0			+	\frac{s-\sigma_0}{S_1-\sigma_0}(\tau_0	-	T_0),	\quad	\sigma_0	\leqq	s	\leqq	S_1.
+	\end{cases}
+\]
+とすると
+\begin{align}
+	\psi(s)	&=	\varphi(\tau(s))	=	\varphi	\left(	\tau_0	+	\frac{s-S_0}{\sigma_0	-	S_0}	(T_1-\tau_0)	\right),
+	\quad	S_0	\leqq	s	\leqq	\sigma_0,	\\
+	\psi(s)	&=	\varphi(\tau(s))	=	\varphi	\left(	T_0		+	\frac{s-\sigma_0}{S_1-\sigma_0}	(\tau_0	-	T_0)	\right),
+	\quad	\sigma_0	\leqq	s	\leqq	S_1.	\notag	\\
+					&\text{\textbf{(閉曲線から閉曲線へのパラメタ変更)}}\notag	
+\end{align}
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=8cm,height=6cm]{fig6.bmp}
+	\label{fig6}
+\end{figure}
+\begin{figure}[tbhp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=8cm,height=6cm]{fig7.bmp}
+	\label{fig7}
+\end{figure}
+各点$S_0,	\:	\sigma_0,	\:	S_1$のとき
+$\tau	(S_0)=\tau_0,	\:	\tau(\sigma_0)=T_1=T_0,	\:	\tau(S_1)=\tau_0$
+すなわち
+$\psi(S_0)=\varphi(\tau	(S_0))=\varphi(\tau_0)=\varphi(\tau(S_1))=\psi(S_1)$．
+この$\psi$をさらにパラメータ変更したものも$\varphi$のパラメータ変更と考えることにする．
+
+$\varphi$が$\psi$のパラメータ変更であるという関係は同値関係である．
+
+\証明
+
+(ⅰ）（反射律）$\varphi$は$\varphi$のパラメータ変更である．なぜならば，
+\[
+	\tau	:	[T_0,T_1]	\rightarrow	[T_0,T_1]	\quad;	t	\mapsto	s=t	\quad	\text{恒等写像}
+\]
+とすると
+$\varphi(s)=\varphi(t)	=	\varphi(\tau(t)),	\quad	s	\in	[T_0,T_1]$であるからである．
+
+(ⅱ）（対象律）$\psi:J	\rightarrow	\C$は$\varphi:I	\rightarrow	\C$のパラメータ変更ならば，
+$\varphi$は$\psi$のパラメータ変更である．なぜならば，仮定よりある狭義単調連続かつ上への写像
+$\tau	:	J	\rightarrow	I$が存在して$\psi(s)	=	\varphi(\tau(s))	,	\quad	s	\in	J$．
+このとき$\tau$の逆関数が$\tau^{-1}:I\rightarrow	J$が存在し，狭義単調連続である
+\footnote{
+小平邦彦著『解析入門』p87，§2.2 連続関数，c)単調関数，逆関数，定理2.7
+}.
+よって$\varphi(t)=\psi(\tau^{-1}(t),	\quad	t	\in	I$
+したがって$\varphi$は$\psi$のパラメータ変更である．
+
+(ⅲ）（推移律）
+$\psi:J	\rightarrow	\C$を$\varphi	:	I	\rightarrow	\C$のパラメタ変更，
+$\eta:K	\rightarrow	\C$を$\psi	:	J	\rightarrow	\C$のパラメタ変更とする．
+このとき，$\eta$は$\varphi$のパラメタ変更である．
+なぜならば仮定より或る単調狭義連続かつ上への写像$\tau_1,\tau_2$が存在する．
+これらの合成写像$\tau	=	\tau_1	\circ	\tau_2	:	K	\rightarrow	I	:	u	\rightarrow	t$
+も単調狭義連続かつ上への写像であり，
+$\psi(s)=\varphi(\tau_1(t))$，$\eta(u)=\psi(\tau_2(s))$となる．
+よって，$\eta$は$\varphi$のパラメータ変更である．
+\■
+
+連続写像$\varphi$の1つ1つを異なる曲線と考えるのは，実際の議論を進めてゆく上で
+不便である．以後この同値関係による類を\textbf{曲線}とよび，
+$C(\varphi)$または$C(\varphi:I\rightarrow	\C)$と書くことにする．
+$\varphi$はその代表元である．しかし$\varphi$およびその像$\varphi(I)$も曲線と
+よぶことがあるが，意味は明らかであろう．
+
+\問{1}
+$\varphi:[T_0,T_1]\rightarrow	\C$を曲線とし$[S_0,S_1]\:(S_0	<	S_1)$を任意の閉区間とする．
+このとき$\varphi$のパラメータ変更$\psi	:	J	\rightarrow	\C$で$J=[S_0,S_1]$となるものがある．
+
+\証明
+$T_0=T_1$の場合，$\psi(s)=\varphi(T_0)$とおけばよい．$T_0	<	T_1$のとき，
+\[
+	\tau	(s)	=	T_0	+	\frac{s-S_0}{S_1-S_0}(T_1	-	T_0)
+	\quad	s	\in	J=(S_0,S_1)
+\]
+とすれば$\psi(s)	=	\varphi(\tau(s))$．
+\■
+
+曲線$C(\varphi	:	[T_0,T_1]	\rightarrow	\C)$に対し，$\varphi(T_0)$を
+$C$の\textbf{始点}，$\varphi(T_1)$を$C$の\textbf{終点}とよぶ．
+$C$の始点および終点を$C$の\textbf{端点}とよぶ．そして
+$C$は$\varphi(T_0)$と$\varphi(T_1)$を結ぶよぶ．$C$が閉曲線かつ
+$\varphi$が$[T_0,T_1)$上1対1であるとき，これを\textbf{単純}(または
+\textbf{ジョルダン(Jordan))}閉曲線とよぶ．$C$が閉曲線のときは，
+$C$上のどの点もパラメータ変更で始点（かつ終点）になりうる．したがって，
+この場合は$C$は与える$\varphi$を決めたときに始点$\varphi(T_0)$が決まる
+と考える．$\varphi$が定写像$(\varphi(t)	\equiv	\varphi(T_0))$のとき，
+これを\textbf{定曲線}とよぶ．
+
+$\varphi:[T_0,T_1]	\rightarrow	\C$が\textbf{連続微分可能}とは，
+$\varphi(t)$の実部$x(t)$および虚部$y(t)$が実数値関数として，
+$[T_0,T_1]$を含む開区間で定義された微分可能関数で，
+導関数が連続である（$\mathcal{C}^1$級)ものとする．
+\[
+	\frac{d\varphi}{dt}(t)=\varphi'(t)	=	\frac{dx}{dt}(t)	+	i	\frac{dy}{dt}(t)
+\]
+とおく．ただし$\varphi(T_0)=\varphi(T_1)$のときは$d\varphi(T_0)/dt	=	d	\varphi(T_1)/dt$
+も成り立つものとする．さらに$\varphi$が\textbf{非特異}とは，任煮の$t$に対し
+$	d	\varphi(t)/dt	\ne	0$が成り立つこととする．$\varphi$が
+\textbf{区分的連続微分可能}とは，$[T_0,T_1]$の分割$T_0=t_0	<	t_1	<	\cdots	<	t_n	=T_1$
+があって$\varphi$の各区間へ制限$\varphi|[T_{j-1},T_j]$が連続微分可能であることとする．
+曲線$C$が連続微分可能（または区分的連続微分可能）とは，$C$をあたえる
+$\varphi	:	[T_0,T_1]	\rightarrow	\C$でそのようなものが取れることとする．
+非特異曲線あるいは区分的非特異曲線なども同様に定義される．
+
+さて曲線$C	(\varphi	:	[T_0,T_1]	\rightarrow	\C)$の像の上では，
+変数$	t	\in	[T_0,T_1]$が増加するにしたがい$\varphi(t)$が始点から終点へ動く．
+$C	(	\varphi	)$は定曲線でないとする．
+上の問1により$\varphi	:	[-1,1]	\rightarrow	\C$としてよい．
+$\psi	(t)	=	\varphi	(-t)$とおくと$\psi	:	[-1,1]	\rightarrow	\C$は
+$\varphi$のパラメータ変更ではない．もし$\varphi	(	-1)	\ne	\varphi(1)$ならば
+$t$が$-1$から$1$へ動くとき，$\varphi	(t)$は$\varphi	(-1)$へ動き，
+$\psi	(t)$は$\varphi(1)$から$\varphi(-1)$へ動く．この意味で$C	(	\varphi)$には
+すでに\textbf{向き}というものが入っていると考える．$\psi$の与える向きを逆にした曲線とよび
+$-C$と書く．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=9cm,height=4cm]{fig8.bmp}
+	\label{fig8}
+\end{figure}
+
+さて曲線$C_1$の終点が曲線$C_2$の始点になっているとする．$C_1$が
+$\varphi_1:	[0,1]	\rightarrow	\C$で，$C_2$が，$\varphi_2:	[1,2]	\rightarrow	\C$
+で与えられているとする．このとき$\varphi_3	:	[0,2]	\rightarrow	\C$を
+$[0.1]$上で$\varphi_1$と等しく，$[1,2]$上で$\varphi_2$に等しいと定義し，
+それのあたえる曲線$C_3$を$C_1$と$C_2$を\textbf{継いだ曲線}，または$C_1$と$C_2$の
+\textbf{和}とよび，
+\[
+	C_3	=	C_1	+	C_2
+\]
+と書く．
+
+部分集合$A	\subset	\C$をとる．$C$が$A$内の曲線であるとは，
+$\varphi([T_0,T_1])	\subset	A$となることとする．$A$が\textbf{弧状連結}とは，
+任意の2点$z,w	\in	A$が$A$内の曲線で結べることと定義する．たとえば，
+円板$\Delta	(a	;	r)$や$\C$自身は弧状連結である．
+
+\問{2}
+閉区間$[T_0,T_1]	(\subset	\R	\subset	\C)$は定理(1.2.4)の意味で連結である．
+
+\証明
+$A=[T_0,T_1]$が2つの開集合$U_0,U_1$で被われ，$U_0	\cap	U_1	\cap	A	=	\varnothing$とする．
+$T_0	\in	U_0$と仮定してよい．このとき$A	\subset	U_0$を示せばよい．
+$\alpha	=	\sup	\{	t	\in	[T_0,T_1]	;	[T_0,t]	\subset	U_0	\}$とおく．
+もし$\alpha	\notin	U_0$とすると$\alpha	\in	U_1$となり，
+（$U_1$は開集合だから）或る$\delta	>0$が存在して
+$(\alpha	-	\delta	,	\alpha+\delta)	\subset	U_1$，
+すなわち$(\alpha	-	\delta	,	\alpha	+	\delta)	\cap	U_0	=	\varnothing$．
+$\alpha$のとり方より$\alpha$より小なる点はすべて$U_0$に属さなければならないが，
+これは$\alpha$のとり方に矛盾する．よって$\alpha	\in	U_0$．同様に$\alpha	<	T_1$とすると
+矛盾を得るの(保留)で，$\alpha	=	T_1$．したがって$[T_0,T_1]	\subset	U_0$．
+
+\定理{(1.2.6)}
+$\C$の開集合が連結であるためには弧状連結であることが必要十分条件である．
+
+\証明
+$\R$の区間は，定理(1.2.4)の意味で連結であることに注意すれば，十分性は明らかであろう（保留）．
+$A$を連結開集合として，$A	\ne	\varnothing$とする．1点$z_0	\in	A$を固定する．
+$z_0$と$A$内の曲線で結べる点の全体を$U_1$，結べない点の全体を$U_2$とする．
+任意の点$a	\in	U_j	\:	(j=1,2)$に対し，$r	>	0$を
+$\Delta	(	a	;	r)	\subset	A$ととる．$\Delta	(a	;	r	)$が
+弧状連結であるから，$\Delta	(	a	;	r	)	\subset	U_j$（弧状連結の定義を参照））．
+よって$U_1,U_2$はともに開集合であり，$A	=	U_1	\cup	U_2$，$U_1	\ne	\varnothing$．仮定より$U_2	=	\varnothing$となり，
+$A=U_1$．
+\■
+
+曲線$\varphi	:	[T_0,T_1]	\rightarrow	\C$が\textbf{折れ線}であるとは
+区間$[T_0,T_1]$の分割$T_0	=	t_0	<	t_1	<	\cdots	<	t_l	=T_1$があり各$[t_{j-1},t_j]$上
+\[
+	\varphi(t)	=	\varphi	(	t_{j-1})	+	a_j	(t-t_{j-1}),	\quad	t_{j-1}	\leqq	t	\leqq	t_j
+\]
+と表されることをいう．ここで$a_j	\in	\C$は定数である．定数(1.2.6)の証明から次がただちにわかる：
+
+\系{(1.2.7)}
+開集合$A$が連結であるためには，$A$の任意の2点が$A$内の折れ線で結べることが必要十分条件である．
+\□
+
+一般に部分集合$A	\subset	\C$をとり，2点$z_1,z_2	\in	A$に対し連結な部分集合
+$A'	\subset	A$が存在して$z_1,z_2	\in	A'$となるとき
+$z_1	\sim	z_2$と書く．これは同値関係であることを示そう．
+
+\証明
+反射律“$z_1	\sim	z_2	\Rightarrow	z_2	\sim	z_1$”は自明である．
+$z_1	\sim	z_2$，$z_2	\sim	z_3$と仮定する．
+連結な部分集合$A'	,	A''	\subset	A$を$z_1,z_2	\in	A'$，
+$z_2,	z_3	\in	A''$ととる．$A'	\cup	A''$が連結であることを示せばよい．
+$A'	\cup	A''$の相対位相に関する開被覆$\{U_1,U_2\}$で$U_1	\cap	U_2	=	\varnothing$となるものを
+とる($U_1	\cup	U_2	\supset	A'	\cup	A''$)．
+$\{U_1,U_2\}$は$A'$の開被覆でもあり，$A'$は連結であるから$A'	\subset	U_1$または$A'	\subset	U_2$．
+$A'	\subset	U_1$としてよい（$A''	\subset	U_2$の場合も同様）．
+$A''$についても$A''	\subset	U_1$または$A''	\subset	U_2$であるが，
+$z_2	\in	A'	\cap	A''	\subset	U_1	\:	(z_2	\in	A'	\cap	A''	\subset	U_2)$
+であるから$A''	\subset	U_1$（$A''	\subset	U_2$）．
+したがって$A'	\cup	A''	\subset	U_1$（$A'	\cup	A''	\subset	U_2$）となり，
+その連結性が示された．$z_1	\sim	z_3$．
+\■
+$z	\in	A$に対し，$A_z	=	\{	z'	\in	A	\:	:	\:	z'	\sim	z	\}$とおき，
+これを$z$を含む$A$の\textbf{連結成分}という．
+$A_{z_1}	\ne	A_{z_2}$ならば$A_{z_1}	\cap	A_{z_2}	=	\varnothing$で，
+各$A_z$から代表元$z_a$を1つ選ぶことにより
+\begin{equation}
+	A	=	\bigcup_{z_a}	A_{z_a}	\label{eq1.2.8}
+\end{equation}
+と分解される．これを$A$の連結成分への分解という．とくに$A$が開集合のときは，
+各連結成分も開集合となる．
+
+\証明
+$\exists	z_{\alpha_1}$で$A_{z_{\alpha_1}}$が開集合でないと仮定すると，
+\[
+	A	=	\bigcup_{\alpha	\ne	\alpha_1}	A_{z_\alpha}	\cup	A_{z_{\alpha_1}},
+	\quad
+	\bigcup_{\alpha	\ne	\alpha_1}	A_{z_\alpha}	\cap	A_{\alpha_{z_1}}	=	\varnothing
+\]
+であるので（以下保留）
+\■
+よって，その代表元$z_a	=	x_a	+	iy_a$として有理点をとれる．
+そのような点は高々可算個であるから番号をつけて$z_i,	\:	i=1,2,\cdots	,N	\:	(	\leqq	\infty)$
+とする．$A_i	=	A_{z_i}$，$i=1,2,\cdots	,	N$とおけば，それらは互いに交わらない（互いに素な）領域で
+\begin{equation}
+	A	=	\bigcup_{i=1}^N	A_i	\label{eq1.2.9}
+\end{equation}

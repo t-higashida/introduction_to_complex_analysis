@@ -1,0 +1,577 @@
+\section{べき級数}
+
+数列$\{a_n\}_{n=0}^\infty$と点$c	\in	\C$を用いて，
+$\sum_{n=0}^\infty	a_n(z-c)^n	$と書かれる関数項級数を\textbf{べき級数}とよぶ．
+変数$z$の平行移動により$c=0$の場合に帰着されるので，
+以後，もっぱら$c=0$と仮定する．べき級数$\sum_{n=0}^\infty	a_n	z^n$と
+$z_0	\in	\C$に対し，つぎの3条件を考えよう：
+
+(2.4.1)
+\begin{list}{}{}
+	\item	ⅰ)	$\sum_{n=0}^\infty	a_n	z_0^n$は収束する．
+	\item	ⅱ)	$\displaystyle	\lim_{n\rightarrow\infty}	a_n	z_0^n	=	0$.
+	\item	ⅲ)	$\displaystyle	\suplim_{n\rightarrow\infty}	|a_nz_0^n|	<	+	\infty$.
+\end{list}
+もちろんⅰ)	$\Rightarrow$	ⅱ)	$\Rightarrow$	ⅲ)である（定理(1.3.8))．
+
+\補題{(2.4.2)}
+(2.4.1)のどれか1条件が満たされれば，$\sum_{n=0}^\infty	a_n	z^n$は
+$\Delta	(	|z_0|	)$（中心$0$，半径$|z_0|$の開円板)上絶対かつ広義一様収束する．
+
+\証明
+$z_0	\ne	0$，$\displaystyle	\suplim_{n\rightarrow\infty}	|a_n	z_0^n	|	<	+	\infty$
+と仮定して主張を示せば十分である．
+任意に$0	<	r	<	|z_0|$をとり（実数の性質によりこのような$r$は存在する），
+$\sum_{n=0}^\infty	|a_n	z^n|$が$\overline{\Delta	(r)}$上一様収束することをいえばよい．
+$ z \in  \overline{\Delta}(r)$を任意にとる．このとき
+\[
+  | a_n z^n| = \left| a_n z_0^n \left(\frac{z}{z_0} \right)^n \right|
+             = |a_n z^n_0| \left| \frac{z}{z_0} \right|^n
+\]
+である．
+ⅲ)よりある$M	>	0$が存在して，すべての$n$について
+\[
+	|a_n	z_0^n|	\leqq	M, \quad n=0,1,2,\cdots
+\]
+である．また$\displaystyle
+  \left| \frac{z}{z_0} \right| < \frac{|r|}{|z_0|} < 1
+$であるから，
+\[
+ |a_n z^n | \leqq  M \left( \frac{r}{|z_0|} \right)^n \quad n=0,1,2,\cdots
+\]
+
+$z	\in	\overline{\Delta	(r)}$に対し
+\[
+	|a_n	z^n|	\leqq	|a_n|	r^n	\leqq	|a_n|	|z_0^n|	\frac{r^n}{|z_0|^n}
+	\leqq	M	\left(	\frac{r}{|z_0|}	\right)^n.
+\]
+$r/|z_0|	<	1$であるから$\sum_{n=0}^\infty	M(r/|z_0|)^n$は収束している．
+したがって$\displaystyle	\sum_{n=0}^\infty	M\left(\frac{r}{z_0}	\right)^n$は
+$\displaystyle	\sum_{n=0}^\infty	a_nz^n$の優級数であるから，
+定理(2.3.3)より，
+$\sum_{n=0}^\infty	|a_n	z^n|$は$\overline{\Delta(r)}$上一様収束している
+（正規収束している）．
+\■
+\系{}
+$\sum_{n=0}^\infty a_n z^n_0$が発散するならば，$|z| > |z_0|$を満たす任意の
+$z$で発散する．
+
+\証明
+$\exists z_1, |z_1| > |z_0|$で収束すると仮定する．$|z_1| > r > |z_0|$となる
+$r \in \R$を選ぶと，補題(2.4.2)より$\overline{D_r}$で正規収束する．
+$z_0 \in \overline{D_r}$であるから,$z_0$でも収束することとなり，
+仮定に反する．したがって$|z| > |z_0|$なる$z$で発散する．
+\■
+
+$\sum_{n=0}^\infty a_n z^n$が$z=z_0$で収束するとき，$z_0$を収束点といい，
+$z=z_0$で発散するとき，$z_0$を発散点という．
+
+べき級数$\sum_{n=0}^\infty	a_n	z^n$が$\Delta	(r)$上広義一様収束するような
+$r	\geqq	0$の\underline{上限$	R	\:	(\leqq	+	\infty)$}を$\sum_{n=0}^\infty	a_nz^n$
+の\textbf{収束半径}とよび，円$\{z	\in	\C	\:	;	\:	|z|=R	\}$を
+\textbf{収束円}とよぶ．
+収束円は次のように分類される．
+\begin{list}{}{}
+\item	（１）$R=0$，$0$だけからなる集合．
+\item	（２）$0	<	R	<	\infty$，$0$を中心とする円の内部とその円周上のある部分集合．
+\item	（３）$R	=	\infty$，複素平面数全体．
+\end{list}
+\証明
+実数の部分集合$A$を$A=\{ x \in \R \: | \: \sum_{n=0}^\infty a_nx^n \: \text{は収束} \: \}$とおく．
+
+（１）$\sup A = + \infty$の場合，すなわち$A$が上に有界ではない場合，
+任意の$z \in \C$に対して，ある$x \in A$が存在して，$|z| < x$，したがって
+$z$で収束する．$z \in \C$は任意であるから，$\C$のすべての点で収束し，
+収束円は$\C$全体となる．
+
+（２）$A = \{ 0 \}$の場合．$z \in \C ,z \ne 0$とすると$|z| > x > 0$
+を満たす実数$x$が存在し$x \not\in A$．したがって，
+$z$において発散し，収束範囲は$A=\{0\}$である．
+
+（３）$A \ne \{0\}$とすると$0$では常に収束しているので$A \ni 0$となり，
+したがって$A \ne \varnothing$である．
+
+$\sup A = R < \infty$とする（$A$は上に有界）．
+$z \in \C, |z| < R$ならば，
+ある$ x \in A$が存在して，$|z| < x < R$，（上限の性質より）したがって
+$z$は収束点である．
+$z \in \C, |z|>R$ならば，ある$x \in \R$が存在して，
+$|z| > x > R$（上限の性質より）したがって，$z$は発散点である．
+\■
+各$a_nz^n$は連続であるから，各収束半径に対して$\sum_{n=0}^\infty	a_nz^n$は
+$\Delta(R)$上連続関数を定める（定理(2.3.4))．
+
+\定理{(2.4.3)}（Cauchy-Hadamard）
+べき級数$\sum_{n=0}^\infty	a_n	z^n$の収束半径$R$はつぎで与えられる：
+\begin{equation}
+	R=\frac{1}{ \displaystyle \suplim_{n\rightarrow \infty}	\sqrt[n]{|a_n|}}
+   =\frac{1}{ \displaystyle \lim_{n \rightarrow  \infty} \left(\sup_{k \geq n} | a_k |^{1/k} \right)}
+	\label{eq2x4x5}
+\end{equation}
+ただし$1/+\infty	=	0$，$1/0	=	+\infty$とする．
+
+さらに
+$\displaystyle \lim_{n \rightarrow \infty} |a_n|^{1/n} = \rho$（存在して$\rho$）とする．
+このときは，
+$\displaystyle  \suplim_{n \rightarrow \infty} |a_n|^{1/n}
+              = \inflim_{n \rightarrow \infty} |a_n|^{1/n}
+              = \lim_{n \rightarrow \infty} |a_n|^{1/n}$
+であるから，$\displaystyle \frac{1}{R} = \rho$
+
+\証明
+まず後段を確認しておく．
+$\displaystyle\rho = \suplim_{n \rightarrow \infty} |a_n|^{1/n}$とおく．
+$\rho < \infty$とする．
+$\displaystyle\rho_n = \sup_{k \geq n} |a_k|^{1/k}$とすると，
+$\{ \rho_n \}$は単調減少，下に有界である($\displaystyle \rho_n \geqq 0$)．
+したがって$\{ \rho_n \}$は収束する．
+$\displaystyle \lim_{n \rightarrow \infty} \rho_n = \rho$を示す．
+任意の$\varepsilon > 0$に対して，ある$n_0 \in \N$が存在して，
+$\forall n > n_0$ならば$\rho \leqq \rho_n \leqq \rho + \varepsilon$
+
+
+
+3つの場合について考える．
+\begin{list}{}{}
+\item	（１）$R=0$，$0$だけからなる集合．
+\item	（２）$0	<	R	<	\infty$，$0$を中心とする円の内部とその円周上のある部分集合．
+\item	（３）$R	=	\infty$，複素平面数全体．
+\end{list}
+（１）$R=0$の場合，$\displaystyle	\overline{\lim_{n\rightarrow	\infty}}\sqrt[n]{|a_n|}=+\infty$を示す．
+或る$r>0$に対して$|a_nr^n|\geqq	1$となる$n$が有限個しかないと仮定して，
+有限個の$n$のうち最大のものを$n_0$とすると，
+$\displaystyle	m	>	n_0	\Rightarrow	|a_mr^m|	<1$である
+（$1$は$\{a_mr^m\}_{n_0	<	m}$の上界の一つ）．
+したがって上限の定義
+\footnote{
+実数$a$が実数の部分集合$A$の上限であるとは，
+(1)すべての元$x \in A$に対して$x \leq a$．
+(2) $y < a$なる任意の実数$y$に対して$y < x$となる元$x \in A$が存在する，
+がともに成立することである．
+実際(1)は，$a$が$A$の１つの上界であることを意味する条件で，(2)は，
+$a$より小さいどんな実数も$A$の上界にはなりえないことを意味する条件である．
+
+小林貞一著『集合と位相』p82，
+}
+より$\displaystyle	n	\geqq	m		\Rightarrow	\sup_{n	\geq	m}\{|a_nr^n|	\}	\leqq	1$，
+上極限の定義（極限の性質）より
+$\displaystyle	\limsup_{n\rightarrow	\infty}	|a_nr^n|	\leqq	1$．
+したがって補題(2.4.2)により$\sum_{n=0}^\infty	|a_nz^n|$は$\Delta(|r|)$上で広義一様収束する．
+\footnote{定義の復習：
+$\{f_n\}_{n=0}^\infty$が\textbf{一様収束}しているとは，
+任意の$\varepsilon	>0$に対しある番号$n_0$が存在して，
+すべての$n	\geq	n_0$と$z	\in	A$に対し
+\[
+	|f_n(z)-f(z)|	<	\varepsilon.
+\]
+
+定義の復習:
+\textbf{広義一様収束}するとは，$D$の任意なコンパクト部分集合上$\{f_n\}_{n=0}^\infty$
+が一様収束することとする．
+}
+
+収束半径$R$の定義より$R	\geqq	r	>	0$であるが，これは$R=0$と矛盾する．
+したがって任意の$r>0$に対して$|a_nr^n|	>	1	\: (	\sqrt[n]{|a_n|}	> 1/r )$となる$n$が無限個存在する．
+このような無限個の$n$に対して$\displaystyle	A_m=\sup_{n>m}\{\sqrt[n]{|a_n|}\}$とおくと，
+$A_m	\geqq	A_{m+1}	\geqq	\cdots	>	1/r$であるから，
+\[
+	\suplim_{n\rightarrow\infty}	\sqrt[n]{|a_n|}	=	\lim_{m\rightarrow\infty}	A_m	\geqq	\frac{1}{r}.
+\]
+（$r$は任意であったから，）
+$r	\searrow	0$として$\displaystyle	\suplim_{n\rightarrow\infty}	\sqrt[n]{|a_n|}	=	+\infty$.
+
+（２）$R	>	0$とする．
+
+（ⅰ）$0	<	r	<	R$を任意にとる．
+$r+\varepsilon	<	R$を満たす$\varepsilon >0$を選ぶと，収束半径の定義より
+$\Delta (|r+\varepsilon|)$で$\sum_{n=0}^\infty	a_nz^n$は広義一様収束する．
+$r	\in	\Delta(|r+\varepsilon |)$であるから，したがって
+$\displaystyle	
+	\lim_{n\rightarrow\infty}	a_nr^n	
+		=	\lim_{n\rightarrow	\infty}	\left(\sum_{i=0}^n	a_ir^i	-	\sum_{i=0}^{n-1}	a_ir^i\right)	
+		=	0$，
+このとき$\displaystyle	\lim_{n\rightarrow	\infty}	|a_nr^n|=0$.
+収束の定義より或る$n_0$が存在して，$n	\geqq	n_0	\Rightarrow	|a_nr^n|	<	1$.
+したがって$\sqrt[n]{|a_n|}	<	1/r$，$1/r$は$\{\sqrt[n]{|a_n|}\}_{n>n_0}$の上界である．
+$\displaystyle	A_{n_0}=\sup_{n	>	n_0}	\{\sqrt[n]{|a_n|}\}$とおくと$1/r	\geqq	A_{n_0}$，
+すなわち
+\[
+	\suplim_{n\rightarrow\infty}\sqrt[n]{|a_n|}	=\lim_{n_0\rightarrow\infty}A_{n_0}	\leqq	\frac{1}{r}.
+\]
+$r	\nearrow	R$として$\displaystyle	\suplim_{n\rightarrow\infty}	\sqrt[n]{|a_n|}	\leqq	1/R$
+を得る．
+
+（ⅱ）つぎに
+$\displaystyle\suplim_{n\rightarrow	\infty}\sqrt[n]{|a_n|}	<	+\infty$として，
+$\displaystyle	\suplim_{n\rightarrow\infty}\sqrt[n]{|a_n|}	<	1/r$
+となるような$r>0$をとる．
+$\displaystyle	\lim_{m\rightarrow\infty}	\sup_{n	>	m}	\{\sqrt[n]{|a_n|}\}	<	1/r$.
+したがって或る$n_1$が存在して$\displaystyle	m	>	n_1	\Rightarrow	\sup_{n>m}	\{\sqrt[n]{|a_n|}\}	<	1/r$.
+このような番号$m$のうちの一つ$n_0$をとると$n	\geqq	n_0$に対し$|a_n|	r^n	<1$．したがって
+$\displaystyle	\suplim_{n\rightarrow\infty}|a_nr^n|	<	1	<	+\infty$となり，
+補題(2.4.2)（ⅲ）により$\sum_{n=0}^\infty	|a_nr^n|$は$\Delta(|r|)$上絶対かつ広義一様収束する．
+収束半径$R$の定義より$r	\leqq	R$．
+$\displaystyle	r	\nearrow	1/(\suplim_{n\rightarrow\infty}	\sqrt[n]{|a_n|})$として，
+\[
+	\frac{1}{\suplim	\sqrt[n]{|a_n|}}	\leqq	R.
+\]
+（ⅰ）（ⅱ）により
+$R	=	1\big/\left(\displaystyle	\suplim_{n\rightarrow\infty}	\sqrt[n]{|a_n|}\right)$.
+
+（３）$R=+\infty$の場合
+
+（ⅲ）（２）の（ⅱ）と同様に$r>0$を
+$\displaystyle	\lim_{n\rightarrow	\infty}	\sqrt[n]{|a_n|}	\leqq	1/r$，$0	<	r	<	R	=+\infty$.
+ととる．
+$r>0$は任意であるから，
+$\displaystyle\overline{\lim_{n\rightarrow	\infty}}	\sqrt[n]{|a_n|}	=	0$
+でなければならない．
+
+（ⅳ）逆に$\displaystyle	\overline{\lim_{n\rightarrow	\infty}}	\sqrt[n]{|a_n|}	=	0$とすると，
+任意の$r>0$に対して或る$n_1$が存在して，
+$\displaystyle	m	\geqq	n_1	\Rightarrow	\sup_{n	\geq	m}	\left\{\sqrt[n]{|a_n|}\right\}	<	1/r$.
+このような$m$のうち1つを取り出して$n_0$とすると$n	\geqq	n_0	\Rightarrow	|a_n|r^n	<1$，
+すなわち$\displaystyle\overline{\lim_{n\rightarrow	\infty}}|a_nr^n|	\leqq	1	<	+\infty$.
+となり，補題(2.4.2)より$\sum	a_nr^n$は$\Delta(|r|)$で一様収束する．
+
+（ⅲ）（ⅳ）より，
+したがって補題(2.4.2)（ⅲ）より任意の$r>0$に対して$\Delta(|r|)$で広義一様収束する．
+\■
+
+\定理{2.4.4}（d'Alembert）
+$\displaystyle\lim_{n\rightarrow	\infty}|a_n|/|a_{n+1}|	\:	(\leqq	+	\infty)$が存在すれば
+収束半径$R$は
+\begin{equation}
+	R=\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}.
+	\label{eq2x4x6}
+\end{equation}
+\証明
+（ⅰ）
+$\displaystyle	0	\leqq	r	<	\lim_{n\rightarrow	\infty}	(|a_n|/|a_{n+1}|)$
+とする．或る番号$n_1$があって$n	\geqq	n_1$に対し
+$	r	<	|a_n|	/	|a_{n+1}|$．よって
+\[
+	r^{n-n_1}	<	\frac{|a_{n_1}|}{|a_{n_1+1}|}	
+							\cdot
+							\frac{|a_{n_1+1}|}{|a_{n_1+2}|}
+							\cdots
+							\frac{|a_{n-1}|}{|a_n|}
+						=	\frac{|a_{n_1}|}{|a_n|}.
+\]
+したがって$n	\geqq	n_1$に対し$|a_n|r^n	< |a_{n_1}|r^{n_1}$.
+$|a_{n_1}|r^{n_1}$は$\{|a_n|r^n\}_{n	\geq	n_1}$の上界であるから
+$	\sup	\{|a_n|r^n\}_{n	\geq	n_1}	\leqq	|a_{n_1}|r^{n_1}$，
+したがって$\displaystyle\suplim_{n\rightarrow	\infty}	|a_nr^n|	\leqq	|a_{n_1}r^{n_1}|	<	\infty$となり，
+定理(2.4.2)（ⅲ）より，$\sum	a_nr^n$は$\Delta(|r|)$で一様収束する．
+\[
+	R	<	\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}
+\]
+と仮定すると，$R$が（中間のある$r$に対して）収束半径であることに矛盾する．したがって
+\[
+	\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}	\leqq	R.	
+\]
+（ⅱ）
+次に\underline{$\displaystyle0	\leqq	\lim_{n\rightarrow	\infty}	(|a_n|/|a_{n+1}|)	<	+\infty	$とし，}
+$\displaystyle\lim_{n\rightarrow	\infty}	(|a_n|/|a_{n+1}|)	<	r$を任意にとる．
+上と同様にして，ある番号$n_2$があって$n	\geqq	n_2$に対し
+\begin{align*}
+	&\frac{|a_{n_2}|}{|a_n|}=\frac{|a_{n_2}|}{|a_{n_2+1}|}
+											\frac{|a_{n_2+1}|}{|a_{n_2+2}|}
+											\cdots
+											\frac{|a_{n-2}|}{|a_{n-1}|}
+											\frac{|a_{n-1}|}{|a_n|}
+	<	r^{n-n_2}
+\end{align*}
+が成り立つので，したがって
+$\displaystyle	|a_{n_2}|	r^{n_2}	\leqq		|a_n|r^n
+$となり，
+$|a_{n_2}|r^{n_2}$は
+$\{|a_n|r^n\}_{n	\geq	n_2}$の一つの下界であるから
+$\displaystyle	|a_{n_2}|	r^{n_2}	\leqq	\inflim_{n\rightarrow	\infty}	|a_n|r^n
+																	\leqq	\lim_{n\rightarrow	\infty}	|a_n|r^n
+$．
+$|a_{n_2}|,r>0$成り立つから，定理(1.3.8)（ⅱ）の対偶をとって
+$\sum_{n=0}^\infty	a_n	r^n$は発散する．
+\[
+	\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}	<	R
+\]
+と仮定すると，$R$が（中間のある$r$に対して）収束半径であることに矛盾する．したがって
+\[
+	R	\leqq	\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}
+\]
+（ⅰ）（ⅱ）より定理は示された．
+$R=\infty$の場合は（ⅱ）の下線部分を背理法の仮定することにより矛盾を導ける．
+したがって上の結論は$R=\infty$の場合も成り立つ．
+\■
+
+\系{2.4.7}
+$\displaystyle	\lim_{n\rightarrow	\infty}\frac{|a_{n+1}|}{|a_n|}	(\leqq	+\infty	)$が存在すれば
+$\displaystyle	\lim_{n\rightarrow	\infty}	\sqrt[n]{|a_n|}	(\leqq	+	\infty)$も存在して
+\[
+	\lim_{n\rightarrow	\infty}	\frac{|a_{n+1}|}{|a_n|}	
+	=	
+	\lim_{n\rightarrow	\infty}		\sqrt[n]{|a_n|}.
+\]
+\証明
+(\ref{eq2x4x5})と(\ref{eq2x4x6})より．
+\[
+	\lim_{n\rightarrow	\infty}	\frac{	|a_{n+1}|}{
+																			|a_n|}
+	=
+		\suplim_{n\rightarrow	\infty}	\sqrt[n]{|a_n|}
+	=
+		\inflim_{n\rightarrow	\infty}	\sqrt[n]{|a_n|}
+	=
+	\lim_{n\rightarrow	\infty}	\sqrt[n]{|a_n|}
+\]
+と書く．
+\■
+
+たとえば，$\displaystyle	\sum_{n=0}^\infty	z^n	$の収束半径は$a_n=1$より
+\[
+	R=\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}	=1
+\]
+である．
+$\Delta (1)$上で
+\begin{equation}
+	\sum_{n=0}^\infty	z^n	=\frac{1}{1-z}
+	\label{eq2x4x8}
+\end{equation}
+となることは，有限部分和$\displaystyle	\sum_{n=0}^N	z^n	=	(1-z^{N+1})/(1-z)$で，
+$N	\rightarrow	\infty$とすれば確かめられる．
+(\ref{eq2x4x8})の自分自身とコーシー積をとると
+$\displaystyle	\sum_{k=0}^\infty	z^k	z^{n-k}	=	(n+1)z^n$となり，
+定理1.3.9より
+\begin{align}
+	\frac{1}{(1-z)^2}
+	&=
+	\left(\sum_{n=0}^\infty	z^n	\right)
+	\left(\sum_{n=0}^\infty	z^n	\right)	\notag\\
+	&=
+	(1	+	z	+	z^2	+	\cdots	+	z^n	+	\cdots)
+	(1	+	z	+	z^2	+	\cdots	+	z^n	+	\cdots)	\notag\\
+	&=
+	(1	+	2z	+	3z^2	+	\cdots	+	(n+1)z^n	+	\cdots)		\notag\\
+	&=
+	\sum_{n=0}^{\infty}	(n+1)z^n	
+	\label{eq2x4x9}
+\end{align}
+このべき級数の収束半径も$\displaystyle	\lim_{n\rightarrow	\infty}(n+1)/(n+2)=1$である．
+ここで，(\ref{eq2x4x9})の各項を「形式的に微分」してみる．
+\begin{align*}
+		\sum_{n=0}^\infty	\frac{d}{dz}z^n
+		&=
+		\sum_{n=0}^\infty	nz^{n-1}	
+		=
+		0	+	\sum_{n=1}^\infty	nz^{n-1}
+		=
+		\sum_{n=0}^\infty	(n+1)z^n	\\
+		&=
+		\frac{1}{(1-x)^2}
+		=
+		\frac{d}{dz}	\frac{1}{1-z}
+		=
+		\frac{d}{dz}	\sum_{n=0}^\infty	z^n	\\
+\therefore	\quad
+		\sum_{n=0}^\infty	\frac{d}{dz}	z^n
+		&=
+		\frac{d}{dz}	\sum_{n=0}^\infty		z^n	\qquad	\text{(\textbf{項別微分可能}については後述)}\\	
+\end{align*}
+べき級数$\displaystyle	\sum_{n=0}^\infty	a_n	z^n$の収束半径を$R$とすると，
+収束円の外$\{	z	\in	\C	\:	|z|	>	R	\}$では
+$\displaystyle\sum_{n=0}^\infty	a_nz^n$は収束しない．収束円上では，収束する点もあれば
+収束しない点もある．たとえば
+\begin{equation}
+	f(z)	=	\sum_{n=0}^\infty	\frac{(-1)^n}{n+1}z^{n+1}
+	\label{eq2x4x10}
+\end{equation}
+を考える．$\displaystyle	a_n	=	\frac{(-1)^n}{n+1}$であるから，
+\[
+	R	=	\lim_{n\rightarrow	\infty}	
+					\frac{|a_n|}{|a_{n+1}|}
+		=	\lim_{n\rightarrow	\infty}
+					\frac{\displaystyle
+									\frac{1}{n+1}
+								}{\displaystyle
+									\frac{1}{n+2}
+								}
+		=	\lim_{n\rightarrow	\infty}	\frac{n+2}{n+1}	=	1.
+\]
+$f(1)$と$f(-1)$はそれぞれ，
+\begin{align*}
+	f(1)	
+		&=	\sum_{n=0}^\infty	\frac{(-1)^n}{n+1}
+				1	-	\frac{1}{2}	+	\frac{1}{3}	+	\cdots	+	\frac{(-1)^n}{n+1}+	\cdots	\\
+	f(-1)
+		&=	\sum_{n=0}^\infty
+					\frac{(-1)^n}{n+1}	(-1)^{n+1}	\\
+		&=	\sum_{n=0}^\infty
+					\frac{(-1)^{2}n(-1)}{n+1}
+				-(1	+	\frac{1}{2}	+	\frac{1}{3}	+	\cdots	+	\frac{1}{n+1}+	\cdots)	\\
+\end{align*}
+となり$f(1)$は収束しているが，$f(-1)$は収束していない．
+\footnote{
+『解析入門』小平邦彦著§1.5.4 例1.4,例1.5
+}
+
+開集合$D	\subset	\C$上の関数$f$が，\textbf{解析的}である，または\textbf{解析関数}
+であるとは，任意の点$z_0	\in	D$に対し，$\Delta(z_0	;	r)	\subset	D$となる
+$r	>	0$と$\Delta	(z_0	;	r)$で収束するべき級数$\sum_{n=0}^\infty	a_n(z-z_0)^n$が存在して，
+次が成立することとする：
+\begin{equation}
+	f(z)=\sum_{n=0}^\infty	a_n	(z-z_0)^n,	\quad	z	\in	\Delta (z_0	;	r).
+	\label{eq2x4x11}
+\end{equation}
+このとき$f$はもちろん連続である．(\ref{eq2x4x11})を$f$の$z_0	\in	D$でのべき級数展開または
+Taylor展開とよぶ．
+
+定理(2.4.12)の準備として
+$\displaystyle\sum_{n=0}^N	\sum_{m=0}^n	a(n,m)$について考察しておく．
+\begin{align*}
+	\sum_{n=0}^N\sum_{m=0}^n	a(n,m)
+	&=
+	a(0,0)													&n=0	\\
+	&+	a(1,0)+a(1,1)								&n=1	\\
+	&+	a(2,0)+a(2,1)+a(2,2)				&n=2	\\
+	&+	a(3,0)+a(3,1)+a(3,2)+a(3,3)	&n=3	\\
+	&+	\cdots	\\
+	&+	a(m,0)+a(m,1)+	\cdots	+	a(m,m)	&n=m\\
+	&+	\cdots	\\
+	&+	a(N,0)+a(N,1)+	\cdots	+	a(N,N)	&n=N\\
+	&=
+	\sum_{n=0}^N	a(n,0)	+\sum_{n=1}^N	a(n,1)	+	\sum_{n=2}^N	a(n,2)	+
+		\cdots	+	\sum_{n=m}^N	a(n,m)	+	\sum_{n=N}^N	a(n,N)	\\
+	&=	\sum_{m=0}^N	\sum_{n=m}^N	a(n,m)
+\end{align*}
+
+\定理{(2.4.12)}
+$a$を中心とする円板$\Delta	(a;r)$で収束するべき級数
+\[
+	f(z)	=	\sum_{n=0}^\infty	a_n	(z-a)^n
+\]
+で定義される関数$f(z)$は$\Delta (a	;	r)$で解析的である．
+
+\証明
+$b	\in	\Delta (a;r)$を任意にとり固定する．$N$-有限和について
+\begin{align}
+	\sum_{n=0}^N	a_n(z-a)^n
+	&=	\sum_{n=0}^N	a_n	(z-b+b-a)^n		\notag\\
+	&=	\sum_{n=0}^N	\sum_{m=0}^n	a_n	\binom{n}{m}(b-a)^{n-m}(z-b)^m	\notag\\
+	&=	\sum_{m=0}^N	\sum_{n=m}^N	a_n	\binom{n}{m}(b-a)^{n-m}(z-b)^m	\notag\\
+	&=	\sum_{m=0}^N	\left\{
+											\sum_{n=m}^N	a_n	\binom{n}{m}(b-a)^{n-m}
+										\right\}	(z-b)^m	\notag	\\
+	&=	\sum_{m=0}^N	c_m	(z-b)^m.
+	\label{eq2x4x13}
+\end{align}
+ただし$\displaystyle	c_m=\sum_{n=m}^N	a_n	\binom{n}{m}(b-a)^{n-m}$とおいた．
+(\ref{eq2x4x13})の(最)右辺は，$|z-b|<r-|b-a|$ならば$z$は
+\[
+	|z-a|	<	|z	-b	+	b	-a|	<	|z	-b|	+	|b	-a|	<	r
+\]
+を満たし，$N	\rightarrow	\infty$とするとき
+収束している．したがって$\displaystyle	\sum_{m=0}^\infty	c_m	(z-b)^m$も
+$\Delta (b;r-|b-a|)$で収束し
+\[
+	f(z)=\sum_{m=0}^\infty	c_m	(z-b)^m,
+	z	\in	\Delta (b	;	r-|b-a|)
+\]
+が成立する．
+\■
+
+\注意{}
+$\displaystyle	f(z)=\sum_{n=0}^\infty	a_n(z-a)^n$が$\Delta (a;	r)$で解析的ならば
+$f(z)$は連続関数である．なぜならば，
+\[
+	|z-a|	<	|z_1	-	a|	<	r
+\]
+を満たす任意の点$z_0	\in	\Delta (a	;	r)$を選ぶ．
+このとき，$f(z)$は$\Delta(a;r)$で解析的なので
+\footnote{\small
+	開集合$D	\subset	\C$上の関数$f$が，\textbf{解析的}である，または\textbf{解析関数}	
+	であるとは，任意の点$z_0	\in	D$に対し，$\Delta(z_0	;	r)	\subset	D$となる
+	$r	>	0$と$\Delta	(z_0	;	r)$で収束するべき級数$\sum_{n=0}^\infty	a_n(z-z_0)^n$が存在して，
+	次が成立することとする：
+	\[\textstyle
+		f(z)=\sum_{n=0}^\infty	a_n	(z-z_0)^n,	\quad	z	\in	\Delta (z_0	;	r).
+	\]
+	このとき$f$はもちろん連続である．右辺を$f$の$z_0	\in	D$でのべき級数展開または
+	Taylor展開とよぶ．
+}
+$f(z_0)=\sum_{n=0}^\infty	a_n	(z_0-a)^n$は収束する．
+したがって，$\Delta (a:|z_0	-a|)$で広義一様連続である．
+すなわち$f(z)=\sum_{n=0}^{\infty}	a_n	(z-a)^n$は
+$\Delta (a;	|z_0-a|)$で連続．
+$z	\in	\Delta (a;r)$は任意であるから，$\Delta (a;r)$で連続
+である．
+\□
+
+
+
+
+つぎの定理は\textbf{一致の定理}とよばれる．
+
+\定理{(2.4.14)}
+$f$を領域$D$上の解析関数とする．部分集合$E	\subset	D$は$D$内にすくなくとも
+1つの集積点をもつとする．もし$f$の$E$への制限$f|E$が恒等的に$0$ならば，
+$f$は$D$上恒等的に$0$である．
+
+\証明
+$a	\in D$を$E$の集積点とする．(\ref{eq2x4x11})のように
+\begin{align*}
+	f(z)	&=	\sum_{n=0}^\infty	a_n	(z-a)^n,	\\
+				&=	a_0	+	a_1(z-a)+	a_2(z-a)^n	+	\cdots	+	a_n(z-a)^n	+	\cdots	\quad	z	\in	\Delta (a;r)	
+\end{align*}
+を$f$の$a$でのTaylor展開とする．
+$a$は$E$の集積点であるから，ある点列$\{\alpha_n\}_{n=1}^\infty,	\alpha_n	\in	E$が存在して
+$\alpha_n	\rightarrow	a	\:	(n	\rightarrow	\infty)$．このような$\alpha_n$に対しても
+$f(\alpha_n)=0	\:	(\forall	n	\in	\N)$．$f$は連続であるから
+$0=\lim_{n\rightarrow	\infty}	f(\alpha_n)	=	f(a)=a_0$.
+いますべての係数$a_n$について$a_n	=	0$を示したい．
+$\{	n	\geqq	1	;	a_n	\ne	0	\}	\ne	\varnothing$と仮定して矛盾を導く．
+$n_0	=	\min	\{	n	\geqq	1	\:	;	\:	a_n	\ne	0	\}$とする．
+\begin{align*}
+	f(z)	&=	(z-a)^{n_0}	\{	a_{n_0}	+	a_{n_0+1}	(z-a)	+	\cdots	+	a_{n_0+m}(z-a)^m	+	\cdots	\}	\\
+				&=	(z-a)^{n_0}	\{	a_{n_0}	+	(z-a)	g(z)	\}	
+\end{align*}
+とおく．ここで，$\displaystyle	g(z)=\sum_{n=1}^\infty	a_{n_0+n}(z-a)^{n-1}$とおいてあるが，
+これは$\Delta (a	;	r)$上連続関数である．
+したがって$0	<	r_1	<	r$を十分小さくとることによって，
+\[
+	|(z-a)g(z)	|	<	|a_{n_0}|,	\quad	z	\in	\Delta (a;	r_1).
+\]
+したがって$z	\in	\Delta(a	;	r_1)	-	\{a\}$に対してはつねに
+\begin{equation}
+	f(z)	\ne	0
+	\label{eq2x4x15}
+\end{equation}
+よって$E	\cap	(\Delta (a	;	r_1)	-	\{a\}	=	\varnothing$となる．
+これは$a$が$E$の集積点であることに反する．
+
+さて$D$の部分集合$D'$をつぎのような点$z	\in D$の全体とする：
+$\Delta (z	;	r)	\subset	D$となるある$r	>	0$が存在して，
+$f	|	\Delta (z	;	r)	\equiv	0$．明らかに$D'$は開集合で，
+上で示したことより$z	\in	D'$でなければならない．
+よって$\overline{D'}	\cap	D	=	D'$．$D'$は$D$内の開かつ閉集合である．
+定理(1.2.4)より$D'	=	D$．
+\■
+
+定理(2.4.14)により，$D$上の非定数解析関数$f$と$w	\in	\C$に対し方程式
+$f(z)	=	w$の解$z$のなす集合なつねに$D$の離散的部分集合であることがわかる．
+つぎは定理(2.4.14)から直接的結果であるが解析関数の重要な性質である．
+
+\定理{(2.4.16)}
+$f$と$g$を領域$D$上の解析関数とする．もし$f(z)	\cdot	g(z)	\equiv	0$ならば
+$f(z)	\equiv	0	$または$g(z)	\equiv	0$である．
+
+\問{1}
+$\displaystyle	\sum_{n=1}^\infty	n^{\log	n}	z^n$の収束半径を求めよ．
+
+\問{2}
+$\displaystyle	\sum_{n=1}^\infty	\frac{n!}{n^n}	z^n$の収束半径を求めよ．
+
+\問{3}
+$f(z)	=\sum_{n=0}^\infty	a_n	z^n$は$\Delta (r)$上で収束するとする．
+このとき$f	\equiv	0$とすべて$a_0	=	0$は同値な条件であることを示せ．
+
+\問{4}定理(2.4.16)を示せ．

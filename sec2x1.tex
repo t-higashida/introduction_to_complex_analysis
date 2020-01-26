@@ -1,0 +1,122 @@
+\chapter{複素関数}
+
+この章の主目標は，前章で解説された複素数の性質に基づき
+解析関数を定義し，その性質を調べることである．これにより，初等関数とよばれる
+指数関数，対数関数，三角関数の厳密な取り扱いがなされる．その後リーマン球面が
+定義され，一次変換が解説される．この章で述べられる事柄は，複素関数論の土台といってよいであろう．
+
+\section{複素関数}
+
+複素平面の部分集合$A	\subset	\C$から$\C$への写像
+$f:A	\rightarrow	\C$を$A$上の，あるいは$A$上定義された\textbf{複素関数}という．
+\begin{align*}
+	\overline{f}(z)	&=	\overline{f(z)},	\quad	z	\in	A,	\\
+	\text{Re}	f			&=	\frac{f+\overline{f}}{2},	\\
+	\text{Im}	f			&=	\frac{f-\overline{f}}{2i}
+\end{align*}
+とおき，$\text{Re}	f$を$f$の\textbf{実部}，$\text{Im}f$を$f$の\textbf{虚部}という．
+
+複素関数$f$が$A$上\textbf{有界}であるとは，ある$M	>	0$が存在して，任意の$z	\in	A$に対し，
+$|f(z)|	\leqq	M$となることとする．
+
+$z_0	\in	\C$を$A$の集積点とする．$f$が$z_0$で\textbf{極限値}	$a	\in	\C$をもつとは，
+任意の$\varepsilon	>0$に対し，ある$\delta	>	0$が存在して，
+任意の$z	\in	(\Delta	(	z_0	;	\delta)	\setminus	\{z_0\})	\cap	A)$に対し
+\[
+	|f(z)	-	\alpha	|	<	\varepsilon.
+\]
+このとき
+\[
+	\alpha	=\lim_{z\rightarrow	z_0}	f(z)
+\]
+と書く．
+
+\問{1}
+$f(z)$が$z_0$で極限値$\alpha$をもつことと，$z_0$に収束する$A	\setminus	\{z_0\}$の点から
+なる任意の数列$\{z_n\}_{n=1}^\infty$に対しつねに
+$\lim	f(z_n)	=	\alpha$が成り立つこととは同値である．
+
+\証明
+実数の場合と同様である．
+
+とくに$z_0	\in	A$で$f(z_0)	=	\lim_{z\rightarrow	z_0}	f(z)$となっているとき，
+$f$は$z_0$で\textbf{連続}であるという．すべての点$z_0	\in	A$で$f$が連続であるとき，
+$f$は$A$上連続であるという．すべての点$z_0	\in	A$で$f$が連続であるとき，
+$f$は$A$上連続であるという．複素関数$f$と$g$が$z_0$で(または$A$上)連続とし，
+$a,b	\in	\C$を定数とすると
+\[
+	a	f(z)	+	b	g(z),	\quad	f(z)g(z)
+\]
+も，やはりそこで連続である．さらにもし$g(z_0)	\ne	0$ならば
+$f(z)/g(z)$も$z_0$も連続である．
+
+\問{2}\begin{list}{}{}
+	\item	ⅰ) $f$が$z_0$で連続であることと$\text{Re}	f$と$\text{Im}	f$が$z_0$で連続であることは
+						同値である．
+	\item	ⅱ) $f$が$z_0$で連続ならば$|f(z)|$も$z_0$で連続である．
+\end{list}
+
+\証明
+ⅰ)	$f$が連続ならば$\overline{f}(z)=\overline{f(z)}$も連続である．主張は，
+$f=\text{Re}f	+	i	\text{Im}	f$，$\text{Re}	f	=	(f+\overline{f})/2$，
+$\text{Im}(f-\overline{f})/2i$よりでる．
+
+ⅱ) $|f(z)|=\sqrt{(\text{Re}	f)^2+(\text{Im}	f)^2}$
+だからⅰ)よりわかる．
+
+$A$上の複素関数$f$が$A$上\textbf{一様連続}であるとは，任意の$\varepsilon	>	0$に対し，
+ある$\delta	>	0$が存在して，
+\[
+	z,w	\in	A,	\:	|z-w|	<	\delta	\Longrightarrow	|f(z)-f(w)|	<	\varepsilon.|
+\]
+
+\定理{(2.1.1)}
+\begin{list}{}{}
+	\item	ⅰ) compact集合上の連続関数$f$は有界であり，$|f(z)|$は最大値をとる．
+	\item	ⅱ) compact集合上の連続関数は一様連続である．
+\end{list}
+\証明
+ⅰ)
+$f$をcompact集合$A$上の連続関数とする．任意の$\varepsilon	>	0$と任意の点
+$a	\in	A$をとると，ある$\delta	(a)	>	0$が存在して
+\[
+	z	\in	\Delta	(a	;	\delta(a))	\Longrightarrow	|f(z)-f(a)|<\varepsilon.
+\]
+$\{\Delta(a;\delta(a)/2)	;	a	\in	A	\}$は$A$の開被覆であるから定理(1.3.6)により
+有限個の点$a_1,\cdots	,	a_l	\in	A$が存在して
+\[
+	A	\subset	\bigcup_{j=1}^l	\Delta	(	a_j	,	\delta_j/2),\quad	\delta_j=\delta	(	a_j	).
+\]
+したがって，任意の$z	\in	A$をとると，ある$j$があって$\Delta	(	a_j,\delta_j/2)	\ni	z$となり，
+\begin{align*}
+	|f(z)|	&=	|f(z)-f(a_j)	+	f(a_j)|	<	\varepsilon	+	|f(a_j)|	\\
+					&	\leqq	\varepsilon+	\max_{1	\leq	j	\leq	l}	|f(a_j)|.
+\end{align*}
+よって，$f$は$A$上有界である．
+\[
+	M	=	\sup	\{	|f(z)|	;	z	\in	A\}	<	+	\infty
+\]	
+とおく．\footnote{小平邦彦著『解析入門』p36,§1.5実数の性質 a)上限,下限}
+$A$の点列$\{z_n\}_{n=0}^\infty$を$\lim_{n\rightarrow\infty}|f(z_n)|=M$となるように
+とる．$A$はcompactであるから（定義より）部分列をとると$\{z_n\}_{n=0}^\infty$は$z_0	\in	A$に
+収束するとしてよい．
+$f$の連続性より
+\[
+	|f(z_0)|=	\lim_{n\rightarrow\infty}	|f(z_n)|	=	M.
+\]
+よってⅰ)が示された．
+
+ⅱ)を示すために，$\displaystyle\delta_0	=	\min_{1	\leq	J	\leq	l}\delta_j$とおく．
+$z,w	\in	A$を$|z-w|	<	\delta_o/2$と任意にとる．
+$A$はcompactであるから，ある$j$があって$z	\in	\Delta	(	a_j	;	\delta_j/2	)$，
+よって$w	\in	\Delta	(a_j,\delta_j)$ともなっている
+($\displaystyle	\because	|w-a_j|	\leqq	|w-z|+|z+a_j|<\delta_0/2	+	\delta_j/2	\leqq	\delta_j$) ．
+これから
+\[
+	|f(z)	-	f(w)|	\leqq	|f(z)-f(a_j)|+	|f(w)	-	f(a_j)|	<	2\varepsilon.
+\]
+これは，$f$が$A$上一様連続であることを示している．
+\■
+
+\問{3}
+保留

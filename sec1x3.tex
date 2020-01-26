@@ -1,0 +1,315 @@
+\section{数列と極限}
+
+これからは，単に数というときは，それは複素数のこととする．
+
+数の無限列$\{z_0,z_1,\cdots	,	z_n,	\cdots	\}=\{z_n\}_{n=0}^\infty$を
+\textbf{数列}または\textbf{点列}とよぶ．これが
+$a	\in	\C$に収束する，あるいは\textbf{極限}$a$をもつとは，任意の$\varepsilon>0$に対して，
+或る番号$n_0$が存在して任意の$n	\geqq	n_0$に対し
+\[
+	|z_n	-	a|	<	\varepsilon
+\]
+このとき
+\begin{equation}
+	a	=	\lim_{n	\rightarrow	\infty}		z_n
+	\quad
+	(\text{または，}z_n	\rightarrow	a	\:	(n	\rightarrow	\infty))	
+	\label{eq1.3.1}
+\end{equation}
+と書く．$z	\in	\C$に対し
+\begin{equation}
+	\max	\{	|\text{Re}	z	|	,|\text{Im}	z|	\}
+	\leqq
+	|z|
+	\leqq
+	|\text{Re}	z|	+	|\text{Im}	z|
+\end{equation}
+であるから，$z_n	=	x_n	+	iy_n,	a=\alpha	+	i	\beta$とおくとき，
+(\ref{eq1.3.1})は次と同値である：
+\begin{equation}
+	\alpha	=	\lim_{n	\rightarrow	\infty}	x_n,
+	\quad
+	\beta	=	\lim_{n	\rightarrow	\infty}	y_n.
+	\label{eq1.3.2}
+\end{equation}
+収束列$\{z_n\}_{n=0}^\infty$はつねに有界である（つまり，$\sup	\{|z_n|;	n=0,1,\cdots\}	<	+\infty)$
+とくに実数列$\{r_n\}_{n=0}^\infty$に対し，いかなる$K>0$をとってもある番号$n_0$があって，
+任意の$n	\geqq	n_0$に対し$	r_n	>K$となるとき，
+$\lim_{n\rightarrow	\infty}	r_n	=	+	\infty$と書くことにする．
+
+$\lim	z_n,\lim	w_n$が存在するならば，$a,b	\in	\C$に対し，次が成り立つ：
+\begin{align*}
+	&\lim	(a	z_n	+	b	w_n)	=	a	\lim	z_n	+	b	\lim	w_n,\\
+	&\lim	(z_n	w_n)				=	(\lim	z_n)(	\lim	w_n)	,\\
+	&\overline{\lim	z_n}		=	\lim	\overline{z_n},	\quad	\lim	|z_n|.
+\end{align*}
+\問{1}上の4式を証明せよ．
+
+\証明
+これは(\ref{eq1.3.2})を用いて実数の場合と全く同様に示される．
+
+数列$\{z_n\}_{n=0}^\infty$の一部をとりだして作った数列$\{z_{n_\nu}\}_{\nu=0}^\infty$
+(順序は変えない）をその\textbf{部分列}という．$\{z_n\}_{n=0}^\infty$が$a$に収束していれば，
+その任意の部分列もまた$a$に収束する．
+
+\定理{(1.3.4)}
+有界な数列$\{z_n\}_{n=0}^\infty$は，必ず収束する部分列をもつ．
+
+\証明
+この証明は，対応する実数列に関するワイエルシュトラスの定理と(\ref{eq1.3.2})および(\ref{eq1.3.3})
+より明らかであろう．
+\footnote{
+\small
+小平邦彦著『解析入門』定理1.30
+}
+\■
+
+数列$\{z_n\}_{n=0}^\infty$が\textbf{Cauchy列}であるとは，任意の$\varepsilon>0$に対し，
+ある番号$n_0$があって，任意の$n	\geqq	n_0,	m	\geqq	n_0$に対し
+\[
+	|z_n-z_m|	<	\varepsilon
+\]
+このとき，(1.3.2)より実数列$\{\text{Re}	z_n\}_{n=0}^\infty$と$\{\text{Im}	z_n\}_{n=0}^\infty$
+がともにCauchy列である．したがって実数列に関する定理より次が成立する：
+
+\定理{(1.3.5)}
+数列$\{z_n\}_{n=0}^\infty$が収束するためには，それがCauchy列であることが必要十分条件である．
+\□
+
+\注意{}
+$\{z_n\}_{n=0}^\infty$がCauchy列とすると，ある部分列$\{z_{n(k)}\}_{k=0}^\infty$が存在して
+$z_{n(k)}	\rightarrow	\alpha$ならば，$z_n	\rightarrow	\alpha	\;	(n	\rightarrow	\infty)$
+である．
+\□
+
+部分集合$A	\subset	\C$が\textbf{compact}であるとは，$A$の点からなる任意の数列
+$\{z_n\}_{n=0}^\infty$が$A$の点に収束する部分列をもつこととする
+
+\定理{(1.3.6)}
+$A	\subset	\C$に対し，次は同値である．
+\begin{list}{}{}
+	\item	ⅰ)	$A$はcompactである．
+	\item	ⅱ)	$A$は有界閉集合である．
+	\item	ⅲ)	$A	\subset	\bigcup_{\alpha\in\Gamma}	U_\alpha$を$A$の任意の開被覆とするとき，
+						有限個の$U_{\alpha_1},	\cdots,	U_{\alpha_l}$が存在して
+						\[
+							A	\subset	\bigcup_{i=1}^l	U_{\alpha_i}.
+						\]
+						\footnote{一般の位相空間において，compactの定義はこちらで与えられる．
+						距離空間においては，compactという概念は点列compact，
+						すなわち$A$内の任意の点列$\{x_n\}$には必ず$A$の点に収束する部分列が存在するという
+						概念と一致する．歴史的にはこの点列compactという概念の方が先に考えられた．
+						}
+\end{list}
+\証明
+（証明保留）
+\■
+$A$の部分集合$B$が\textbf{相対compact}であるとは，閉包$\overline{B}$がcompactで
+かつ$\overline{B}\subset	A$であることとし，$B	\Subset	A$と書く．
+
+\問{2}定理(1.3.6)，ⅲ)で各$U_{\alpha_i}$内に相対compactな開集合$V_i	\Subset	U_{\alpha_i}$がとれ
+$A	\subset	\bigcup_{i=1}^l	V_i$とできる．
+
+\証明
+$U=\bigcup_{i=1}^l	U_{\alpha_i}$とおく．
+$z	\in	U_{\alpha_i}$に対し$\Delta	(	z	;	r(z))	\subset	U_{\alpha_i},	\:	(r(z)	>	0)$をとり，
+さらに$U_{\alpha_i}	\cap	U_{\alpha_j}$が開集合であるから，
+\footnote{\small
+現代数学レクチャーズA-1 『集合と位相』小林貞一著　p102 
+
+\定理{2}
+距離空間$X$の開集合について，次が成り立つ．
+\begin{list}{}{}
+	\item(ⅰ)　$X$自身および空集合$\varnothing$は，$X$の開集合である．
+	\item(ⅱ)　$X$の任意の有限個の開集合の共通部分は，$X$の開集合である．
+	\item(ⅲ)　$X$の任意個の開集合の和集合は，$X$の開集合である．
+\end{list}
+}
+$z	\in		U_{\alpha_i}	\cap	U_{\alpha_j}	\Longrightarrow	\Delta(z;r(z))	\subset	U_{\alpha_i}	\cap	U_{\alpha_j}$
+を満たすように$\Delta(z;r(z))$をとる．
+
+$z$と$a_i$を動かして$A$の開被覆$\{\Delta	(z	;	r(z)/2)	\}$を考える．
+このとき$A	\subset	U_{z	\in	U}	\Delta	(	z	;	r(z)/2)$が成立する．
+$A$はcompactであるから有限個の$\Delta(z_\lambda	;	r(z_\lambda)/2),	\;	1	\leqq	\lambda	\leqq	\mu$，が
+存在して$A$を被う
+($A	\subset	\bigcup_{\lambda=1}^l	\Delta	(	z_\lambda	;	r(z_\lambda)/2)$)．
+
+各$i$に対して$\Delta	(	z_\lambda	;	r(z_\lambda)/2	)	\subset	U_{\alpha_i	}$を満たすものをすべて取り出し
+$V_i	=	\bigcup	\Delta	(	z_\lambda	;	r(z_\lambda)/2)	\:\:	(i=1,\cdots	,	l)$とおく．
+このとき，
+$\overline{V_i}=\bigcup	\overline{\Delta	(	z_\lambda	;	r(z_\lambda)/2)}		\:\:	(i=1,\cdots	,	l)$
+\footnote{現代数学レクチャーズA-1『集合と位相』小林貞一著　p118,
+
+\定理{12}$A$および$B$を，位相空間$X$の部分集合とするとき，
+
+[K$_3$]	$\overline{A	\cup	B}	=	\overline{A}	\cup	\overline{B}$
+}.
+$	\overline{\Delta	(	z_\lambda	;	r(z_\lambda)/2)}	
+	\subset	
+	\Delta	(	z_\lambda	;	r(z_\lambda))
+	\subset
+	U_{\alpha_i}																										
+$であるから，$\Delta	(	z_\lambda	;	r(z_\lambda)/2)	\subset	\Delta	(	z_\lambda	;	r(z_\lambda))$に注意すれば，
+$\overline{V_i}	\subset	U_{\alpha_i}$となる．
+\■
+
+数列$\{z_n\}_{n=0}^\infty$をとり，これを形式的に和の形$\sum_{n=0}^\infty$で表したものを
+\textbf{級数}とよぶ．$N=0,1,2,\cdots$に対し和$s_N	=	\sum_{n=0}^N	z_n$を
+その$N$-\textbf{有限和}とよぶ．
+$\{s_n\}_{N=0}^\infty$が収束するとき，$\sum_{n=0}^\infty$は収束するといい，
+極限$\lim_{N\rightarrow	\infty}s_N$を$\sum_{n=0}^\infty$で表す：
+\[
+	\sum_{n=0}^\infty	z_n	=	\lim_{N	\rightarrow}	\sum_{n=0}^N	z_n.
+\]
+$\sum_{n=0}^\infty	z_n$,$\sum_{n=0}^\infty	w_n$が収束するならば，
+定数$a	,	b	\in	\C$に対し
+\begin{align*}
+	\sum_{n=0}^\infty	(az_n	+	b	w_n)	&=	a	\sum_{n=0}^\infty	z_n	+	b	\sum_{n=0}^\infty	w_n,	\\
+	\overline{\sum_{n=0}^\infty	z_n}	&=	\sum_{n=0}^\infty	\overline{z_n}
+\end{align*}
+が成立することは明らかであろう．
+$\sum_{n=0}^\infty$が\textbf{コーシー条件}をみたすとは，
+その$N-$有限部分和の列$\{s_N\}_{N=0}^\infty$がコーシー列をなす
+\begin{align*}
+	\forall	\varepsilon	>	0	\text{に対して}	\exists	N_0	\text{が存在して}
+	n	>	m	\geqq	N_0	\Longrightarrow	|S_m	-	S_n|=|z_{m+1}	+	z_{m+2}	+	\cdots	+	z_n|	<	\varepsilon
+\end{align*}
+となることとする．
+また$\sum_{n=0}^\infty	z_n$が\textbf{絶対収束}するとは$\sum_{n=0}^\infty	|z_n|$が収束することとする．
+
+1対1かつ上への写像$\lambda	:	\Z^+	\rightarrow	\Z^+$をとり，
+$\sum_{n=0}^\infty	z_{\lambda(z)}$としたものを
+$\sum_{n=0}^\infty	z_n$の\textbf{項を並べ替えた級数}という．
+
+\定理{(1.3.8)}
+\begin{list}{}{}
+	\item	ⅰ)	級数$\sum_{n=0}^\infty	z_n$が収束することとコーシー条件を満たすことは同値である．
+	\item	ⅱ) $\sum_{n=0}^\infty	z_n$が収束するならば，$\lim_{n\rightarrow\infty}	z_n	=	0$．
+	\item	ⅲ) $\sum_{n=0}^\infty	z_n$が絶対収束するならば，それは収束する．
+	\item	ⅳ) 絶対収束級数は項を並べ替えても絶対収束し，極限は変わらない．
+\end{list}
+
+\問{3}上の定理を証明せよ．
+\証明
+（保留）
+\■
+
+2つの級数$\sum_{n=0}^\infty	z_n$と$\sum_{n=0}^\infty	z_n'$に対し，
+\[
+	w_n=\sum_{i=0}^n	z_i	z_{n-i}'
+\]
+とおいて作った級数$\sum_{n=0}^\infty	w_n$を$\sum	z_n$と$\sum	z_n'$の
+\textbf{コーシー積}と呼ぶ．実級数の場合と全く同様にして次が示される：
+
+\定理{(1.3.9)}
+級数$\sum	z_n$と$\sum	z_n'$がともに絶対収束するならば，
+それらのコーシー積$\sum	w_n$も絶対収束し，
+\[
+	\sum_{n=0}^\infty	w_n	=	\left(	\sum_{n=0}^\infty	z_n		\right)
+													\left(	\sum_{n=0}^\infty	z_n'	\right).
+\]
+が成り立つ．
+
+\証明
+（略）
+\■
+
+数列$\{z_n\}_{n=0}^\infty$に対し，形式的に積の形$\prod_{n=0}^\infty	z_n$で表したものを
+\textbf{無限乗積}とよぶ．無限乗積が収束するとはつぎの条件が満たされることとする：
+
+(1.3.10)	\begin{list}{}{}
+						\item	ⅰ) ある番号$n_0$が存在して，すべての$n	\geqq	n_0$に対し	$a_n	\ne	0$．
+						\item	ⅱ)	数列$\left\{\prod_{n=n_0}^{n_0+m}	z_n	\right\}_{m=0}^\infty$が$0$でない数に収束する．
+					\end{list}
+このとき
+\[
+	\prod_{n=0}^\infty	z_n	=	\left	(	\prod_{n=0}^{n_0-1}	z_n	\right)
+														\left	(	\lim_{m\rightarrow\infty}\prod_{n=n_0}^{n_0+m}	z_n\right)
+\]
+とおき，これを無限乗積$\prod_{n=0}^\infty	z_n$の極限とする．もちろんこれは存在する限り
+$n_0$のとり方には依らない．
+
+\定理{(1.3.11)}
+\begin{list}{}{}
+	\item	ⅰ)	無限乗積$\prod_{n=0}^\infty	z_n$が収束するならば，$\lim_{n\rightarrow	\infty}	z_n=1$.
+	\item	ⅱ) $\prod_{n=0}^\infty	z_n$が収束するために，つぎは必要十分条件である：
+						任意の$\varepsilon	>0$に対し，ある番号$n_0$が存在して任意の$n_2	\geqq	n_1	\geqq	n_0$に対し
+						\begin{equation}
+							\left|	\prod_{n=n_1}^{n_2}	z_n	-1	\right|	<	\varepsilon.	
+							\label{eq1.3.12}
+						\end{equation}
+\end{list}
+\証明
+ⅰ)	(1.3.10)，ⅰ)のように$n_0$をとる．$a=\lim_{m\rightarrow\infty}	\prod_{n=n_0}^m	z_n$とおくと，
+$a	\ne	0$で
+\[
+	z_m	=	\frac{\prod_{n=n_0}^m	z_n}{\prod_{n=n_0}^{m-1}	z_n}	\rightarrow	\frac{a}{a}=1	\quad	(m	\rightarrow	\infty).
+\]
+ⅱ) まず必要性を示す．$n_0$を上と同じようにとる．
+仮定より数列$\left\{\prod_{n=n_0}^{n_0+m}\right\}_{m=0}^\infty$は（$0$でない値に)
+収束し，有界である．したがって
+ある$M	>0$が存在して，任意の$m	\in	\N$に対し
+\begin{equation}
+	\label{eq1.3.13}	\frac{1}{M}	\leqq	\left|	\prod_{n=n_0}^{n_0+m}	z_n	\right|	\leqq	M.
+\end{equation}
+定理(1.3.5)より，任意の$\varepsilon	>0$に対し，ある番号$n_1$が存在して任意の$m_2	\geqq	m_1	\geqq	n_1$
+に対し
+\[
+	\left|	\prod_{n=n_0}^{n_0+m_2}	z_n	-	\prod_{n=n_0}^{n_0+m_1}	z_n	\right|	<	\varepsilon.
+\]
+したがって
+\[
+	\left|	\prod_{n=n_0+m_1+1}^{n_0+m_2}	z_n	-1	
+	\right|
+	<
+	\frac{\varepsilon}{\displaystyle\prod_{n=n_0}^{n_0+m_1}	|z_n|}
+	\leqq	M\varepsilon.
+\]
+$\varepsilon	>0$は任意であるから$m+1=n_1$，$m_2=n_2$とおけば，主張は示された．
+
+つぎに十分性を示す．条件により
+任意の$\varepsilon	>0$に対し，ある番号$n_0$が存在して任意の$n_2	\geqq	n_1	\geqq	n_0$に対し
+\[
+	\left|	\prod_{n=n_1}^{n_2}	z_n	-1	\right|	<	\varepsilon.	
+\]
+任意の$\varepsilon	>0$に対しある番号$n_0)$が存在して，
+\[
+	\left|
+		\prod_{n=n_1}^{n_2}	z_n	-	1
+	\right|
+	<	\varepsilon.
+\]
+$n_0$は固定して$n_2=n_1-1$と改めておくと，
+三角不等式より
+$\left|	\prod_{n=n_0}^{n_1-1}	z_n	\right|	-	1	<	\left|	\prod_{n=n_0}^{n_1-1}	z_n	-	1\right|$,
+したがって
+\[
+	1	-	\varepsilon	<	\left|	\prod_{n=n_0}^{n_1-1}	z_n	\right|	<	1	+	\varepsilon
+\]
+このときある$M	>0$が存在して
+\[
+	\frac{1}{M}	<	\left|	\prod_{n=n_0}^{n_1-1}	z_n	\right|	<	M
+\]
+とできる
+($M	\geqq	\max{\displaystyle	\left\{\frac{\varepsilon}{\varepsilon-1},\frac{\varepsilon+1}{\varepsilon}	\right\}}$とおけばよい）．
+
+\[
+	\left|
+		\prod_{n=n_0}^{n_2}	z_n	-	\prod_{n=n_0}^{n_1}	z_n
+	\right|
+	=
+	\left|
+		\prod_{n=n_0}^{n_1-1}	z_n
+	\right|
+	\left|
+		\prod_{n=n_1}^{n_2}	z_n	-	1
+	\right|
+	\leqq	M\varepsilon.
+\]
+したがって$\{\prod_{n=n_0}^{n_0+m}	z_n\}_{m=0}^\infty$はCauchy列となり，
+定理(1.3.5)よりその収束がわかる．また(1.3.13)よりその極限が$0$でないこともわかる．
+\■
+無限乗積については，次章で複素数に対する指数関数，対数関数を定義した後に再論される．
+
+\textbf{問題}
+（保留）

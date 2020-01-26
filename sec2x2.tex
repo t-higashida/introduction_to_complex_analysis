@@ -1,0 +1,379 @@
+ \section{複素関数列}
+
+$A$上の複素関数の無限列$\{f_n\}_{n=0}^\infty$を$A$上の\textbf{複素関数列}とよぶ．
+複素関数$\{f_n\}_{n=0}^\infty$が点$z	\in	A$で\textbf{収束}するとは，
+数列$\{f_n(z)\}_{n=0}^\infty$が収束することとする．
+$\{f_n\}_{n=0}^\infty$が任意の点$z	\in	A$で収束するとき，
+$\{f_n\}_{n=0}^\infty$は$A$上収束するといい，
+各$z	\in	A$に対し$f(z)=\lim_{n\rightarrow\infty}	f_n(z)$で定義される$A$上の
+複素関数$f$を$\{f_n\}_{n=0}^\infty$の\textbf{極限関数}とよび，
+\[
+	f=\lim_{n\rightarrow\infty}	f_n,	\quad	f_n	\rightarrow	f	\quad	(n\rightarrow	\infty)
+\]
+と書く．このとき，さらに$\{f_n\}_{n=0}^\infty$が\textbf{一様収束}しているとは，
+任意の$\varepsilon	>0$に対しある番号$n_0$が存在して，
+すべての$n	\geqq	n_0$と$z	\in	A$に対し
+\[
+	|f_n(z)-f(z)|	<	\varepsilon.
+\]
+
+\注意{：各点収束と一様収束の違い}
+
+\textbf{各点収束：}
+任意の$\varepsilon	>0$と各点$z	\in	D$に対してある$n_0(z)$が存在して，
+$n	\geqq	n_0(z)	\Rightarrow	|f_n(z)-f(z)	|	<\varepsilon$.
+
+\textbf{一様収束：}
+任意の$\varepsilon	>0$に対してある$n_0$が($z	\in	D$に無関係に)存在して，任意の$z	\in	D$に対して
+$n	\geqq	n_0	\Rightarrow	|f_n(z)-f(z)	|	<\varepsilon$.
+
+\注意{：一様収束関数の意義}
+連続関数の各点収束列の極限は，連続関数とは限らない．
+一方，連続関数の一様収束列の極限は，連続関数である（定理2.2.5）．
+
+\注意{：コンパクト集合$K$上の連続関数の意義}
+\begin{list}{}{}
+	\item	・最大値と最小値をもつことから，最適化ができる．
+	\item	・一様連続であることから，近似ができる．
+	\item	・その全体$\mathscr{C}(K)$が一様ノルムに関して完備距離空間をなし，その議論の基盤となる．
+\end{list}
+
+\定理{(2.2.1)}
+\begin{list}{}{}
+	\item	ⅰ) $A$上の複素関数列$\{f_n\}_{n=0}^\infty$が一様収束するために，つぎは必要十分条件である：
+						任意の$\varepsilon	>	0$に対し，ある番号$n_0$があり，すべての$n,m	\geqq	n_0$とすべての
+						$z	\in	A$に対し
+						\[
+							|f_n(z)	-	f_m(z)	|	<	\varepsilon.
+						\]
+	\item	ⅱ) $A$上の連続複素関数からなる列$\{f_n\}_{n=0}^\infty$が$A$上一様収束しているならば，
+						極限関数$f=\lim_{n\rightarrow\infty}	f_n$も$A$上連続である．
+\end{list}
+\証明
+ⅰ) （必要性）$f_n	\rightarrow	f$を一様収束する．定義より任意の$\varepsilon	>0$に対して，
+ある$n_0	\in \N$が存在して，$\forall	n	\geqq	n_0,	\forall	z	\in	A$ならば
+$\displaystyle	\left|f_n(z)-f(z)\right|<	\varepsilon/2$.
+したがって
+\[
+	m,n	\geqq	n_0,	\:	z	\in	A	
+	\Rightarrow	
+	|f_m(z)	-	f_n(z)|\leqq|f_m(z)-f(z)|+|f(z)-f_n(z)|	<	\varepsilon.
+\]
+
+（十分性）
+$\forall	\varepsilon	>	0$に対して，$\exists	n_0$が存在して$\forall	m,n	\geqq	n_0$，
+$z	\in	A$に対して
+\[
+	|f_n(z)-f_m(z)|	<	\varepsilon.
+\]
+$z	\in	A$を固定すると$\{f_n(z)\}_{n=0}^\infty$はCauchy列であるから定理(1.3.5)より収束する．
+したがって$\displaystyle\lim_{n\rightarrow\infty}	f_n(z)	=f(z)$となる.
+(☆)において，$m\rightarrow	\infty$とすると$|f_n(z)	-	f(z)|	<	\varepsilon	<	2\varepsilon$
+よって
+\[
+	\therefore	\forall	\varepsilon	>	0,	\exists	n_0,	n\geqq	n_0,	z	\in	
+	\Rightarrow	|f_n(z)	-	f(z)|	<	2	\varepsilon.
+\]
+ⅱ) 任意に$\varepsilon	>	0$をとる．条件よりある番号$n_0$があって
+\[
+	|f(z)	-	f_{n_0}(z)|	<	\varepsilon	,	\quad	z	\in	A.	\quad	\text{(☆)}
+\]
+1点$a	\in	A$を任意にとり固定する．$f_{n_0}$は$a$で連続であるから，
+ある$\delta	>	0$が存在して
+\[
+	z	\in	\Delta	(	a;\delta)	\cap	A	\Rightarrow	|f_{n_0}(z)	-	f_{n_0}(a)|	<	\varepsilon,	\quad	.
+\]
+上記2式より，$z	\in	\Delta	(	a;\delta)$に対し
+\[
+	|f(z)	-	f(z)|	\leqq	|f(z)-f_{n_0}(z)|	+	|f_{n_0}(z)	-	f_{n_0}(a)	|	+	|f_{n_0}(a)-f(z)|	<	3	\varepsilon,
+\]
+よって$f$は$a	\in	A$で連続である．$a$は任意であるから$f$は$A$上で連続である．
+\■
+$A$上の複素関数列$\{f_n\}_{n=0}^\infty$が\textbf{一様有界}であるとは，
+ある$M	>	0$が存在して，すべての$n\in	\N$と$z	\in	A$に対し
+\[
+	|f_n(z)|	\leqq	M.
+\]
+さて数列は有界ならば必ず収束する部分列をもつ(定理(1.3.4)).
+ならば，$A$上の複素関数列は，一様有界ならば収束する部分列をもつであろうか，
+答は，否である（例については章末の問題3をみよ）．
+さらに，ここでは連続関数からなる列を考え，極限関数も連続であることを要請したい．
+そのためにつぎの新しい概念を導入する．
+
+$A$上の複素関数からなる族$\mathscr{F}$が\textbf{同程度連続}であるとは，
+任意の$\varepsilon	>	0$に対し，ある$\delta	>	0$が存在して，すべての
+$f	\in	\mathscr{F}$に対し
+\begin{equation}
+	z,w	\in	A,	\:	|z-w|<\delta	\Rightarrow	|f(z)-f(w)|	<	\varepsilon.
+	\label{eq2.2.2}
+\end{equation}
+このとき，もちろん各$f	\in	\mathscr{F}$は一様連続である．
+つぎの定理はAscoli-Arzelaの定理とよばれ，解析学において広く用いられる．
+
+\定理{(2.2.3)}
+compact集合$A$上の一様有界かつ同程度連続な複素関数列$\{f_n\}_{n=0}^\infty$は
+$A$上一様収束する部分列をもつ．
+
+\証明
+
+$A$の点列からなる可算集合$E	=	\{z_\mu	;	\mu	=	1,2,\cdots	\}$で
+$\overline{E}=A$となるものをとる．これはつぎの手続きにより得られる．
+もちろん$A$が無限集合のときが問題になるわけであるが，
+定理(1.3.6)，ⅱ)により$A$は有界集合であるから，
+ある$M>0$が存在して，任意の$z	\in	A$に対し$|\text{Re}	z|	\leqq	M,	|\text{Im}	z|	\leqq	M$.
+正方形
+\[
+	F_1	=	\{	z	\in	\C	;	|\text{Re}	z	|	\leqq	M,	|\text{Im}	z|	\leqq	M	\}
+\]
+をとる．$F_1$の各辺を2等分し，4個の正方形$F_{2,1},\cdots	,	F_{2,4}$を得る．
+これを繰り返すことにより$n$回目には$4^{n-1}$個の正方形$F_{n,j},	1	\leqq	j	\leqq	4^{n-1}$,
+を得る．
+\[
+	A	\subset	\bigcup_{j=1}^{4^n-1}	F_{n,j}	=	F_1.
+\]
+各$F_{n,j}$に対し，もし$A	\cap	F_{n,j}	\ne	\varnothing$ならば，
+1点$z_{n,j}	\in	A	\cap	F_{n,j}$をとり，これらのなす
+有限集合を$E_n$とする．$E	=	\bigcup_{n=1}^\infty	E_n$とおけば，
+これが可算集合で$E	\subset	A$となっている．
+
+$\overline{E}=A$を示す．
+
+まず，$E	\subset	A$であるから$\overline{E}	\subset	\overline{A}$
+\footnote{
+現代数学レクチャーズA-1	小林貞一著『集合と位相』
+p119 [K$_3$']
+}.
+compactな集合$A$は有界な閉集合である
+\footnote{定理(1.3.6)}から
+$A=\overline{A}$（定理1.2.2ⅰ))．したがって$\overline{E}	\subset	A$.
+
+つぎに$z	\in	A$とする．
+$z	=	\exists	z_{n.j}$のとき$A	\subset	E$は自明，$z	\ne	\forall	z_{n.j}$とする．
+$\forall	\varepsilon	>0$をとり$\Delta	(	z	;	\varepsilon)$を考える．
+$\bigcup_{j=1}^{4^{n-1}}	F_{nj}=F_1$であるから，
+$\forall	n$に対してある$j$が存在して$\Delta	(	z	;	\varepsilon)	\cap	F_{n,j}	\ne	\varnothing$．
+$\Delta	(	z	;	\varepsilon)	\cap	F_{n,j}	=\{z_0\}$（1点で接する）の場合，
+$\Delta	(	z	;	\varepsilon)	\cap	F_{n-1,j}	\ne	\varnothing$で改めて考える．
+このとき$m>n$なる$m$が存在して$\delta(F_{m,k})	<	\varepsilon$かつ$F_{m,k}	\subset	\Delta(z;\varepsilon)$
+とできる．
+$F_{m,k}	\cap	A	\subset	\Delta	(	z;	\varepsilon)	\cap	A	\subset	\Delta(z;\varepsilon)$．
+したがって$z_{m,k}	\in	F_{m,k}	\cap	A	\Rightarrow	z_{m,k}	\in	\Delta(z;\varepsilon)$，
+$z_{m,k}	\in	(\Delta(z	;	\varepsilon)	\setminus	\{z\})	\cap	E)	=	\varnothing$，
+したがって$z$は$E$の集積点であり$z	\in	\overline{E}$.
+\footnote{\small	\textbf{閉包$\overline{E}$の定義の復習}：
+$E$の点と$E$の集積点の全体を$\overline{E}$で表し閉包と呼ぶ．
+\textbf{集積点の定義の復習}：任意の$\varepsilon	>	0$に対し
+$\Delta(z;\varepsilon)\setminus\{z\}	\cap	E	\ne	\varnothing$
+となることとする．
+}
+以上より$A	=	\overline{E}$．
+
+$E$の元は可算個であるから適当に番号を付け替えて
+$E=\{z_{\nu_i}	\:	;	\:	\nu=1,2,\cdots	\}$とおく．
+さて，$z_1	\in	E$に対し，$\{f_n(z_1)\}_{n=0}^\infty$は有界数列であるから
+定理(1.3.4)により収束部分列$\{f_{n(1)_\mu}(z_1)\}_{\mu=0}^\infty$をもつ．
+同様に$\{f_{n(1)_\mu}(z_2)\}_{\mu=0}^\infty$は収束する部分列
+$\{f_{n(2)_\mu}(z_2)\}_{\mu=0}^\infty$をもつ．これを繰り返すことにより
+$z_1,\cdots	z_k$で収束する部分列
+$\{f_{n(k)_\mu}(z)\}_{\mu=0}^\infty	\:	(k=1,2,\cdots,	)$を得る．
+したがって，$\{f_n\}_{n=0}^\infty$の部分列$\{f_{n(\mu)_\mu}\}_{\mu=1}^\infty$
+は$E$上収束する．これを簡単のため$\{g_\mu\}_{\mu=0}^\infty$と書く．
+任意の$\varepsilon	>	0$に対し$\delta$を$(\ref{eq2.2.2})$が成り立つようにとる．
+すなわち
+\[
+	|z-w|	\in	A,	\:	|z-w|<\delta	\Rightarrow	\forall	\in	\{f_n\}_{n=0}^\infty	|f(x)-f(w)|<\varepsilon
+	\quad	\text{(同程度連続)}
+\]
+このような$\delta$に対して$\{\Delta(a;\delta/2)	\:	;	\:	a	\in	A\}$を考えると$A$はcompactであるから，
+定理(1.3.6)により$A$は有限個の$\Delta(a_j	;	\delta/2)	\:	(a_j	\in	A)$，
+$1	\leqq	j	\leqq	l$，で被われる．$\overline{E}	=	A$でるから，
+各$j$に対し，$z_{\nu	(j)}	\in	\Delta	(	a_j	;	\delta/2	)	\cap	A$をとれる．
+$z_{\nu(j)}	\in	E	\subset	A$.
+或る番号$\mu_0$があって，$\mu	,	\mu'	\geqq	\mu_0$に対し
+\begin{equation}
+	|g_\mu	(	z_{\nu(j)})	-	g_{\mu'}	(	z_{\nu(j)})	|	<	\varepsilon,	\quad	1	\leqq		j	\leqq	l.
+	\label{eq2.2.4}
+\end{equation}
+さて任意に$a	\in	A$をとる．ある$j	;	1	\leqq	j	\leqq	l$があって
+$a	\in	\Delta	(	a_j	;	\delta	/2	)$．上のように定められた
+$\mu,	\mu'	\geqq	\mu_0$に対し，$(\ref{eq2.2.2})$と$(\ref{eq2.2.4})$から次を得る：
+\[
+	|g_\mu	(a)	-g_{\mu'}	(a)	|	\leqq		|g_\mu(a)	-	g_\mu(z_{\mu(j)})|
+																		+	|g_\mu(z_{\mu(j)})	-	g_{\mu'}(z_{\mu(j)})|
+																		+	|g_{\mu'}(z_{\mu(j)})	-	g_{\mu'}(a)|
+																		<	3	\varepsilon.
+\]
+よって定理(2.2.1)，ⅰ)より$\{g_\mu\}_{\mu=0}^\infty$は$A$上一様収束している．
+\■
+
+$D$を$\C$の開部分集合とする．$D$上の複素関数列$\{f_n\}_{n=0}^\infty$が
+\textbf{広義一様収束}するとは，$D$の任意のコンパクト部分集合上$\{f_n\}_{n=0}^\infty$
+が一様収束することとする．
+
+
+
+\定理{(2.2.5)}
+\begin{list}{}{}
+	\item	ⅰ)	$D$上の複素関数列$\{f_n\}_{n=0}^\infty$が広義一様収束することと，
+						任意の点$z	\in	D$に対しある$r	>	0$で
+						$\overline{\Delta	(	a	;	r)}	\subset	D$かつ$\{f_n\}_{n=0}^\infty$が
+						$\overline{\Delta	(	a;	r)}$上一様収束するようなものが存在することは同値である．
+	\item	ⅱ) $D$上広義一様収束する複素関数列の極限関数は連続である．
+\end{list}
+\証明
+ⅰ）（十分性）各$z	\in	D$に対し$	r	>	0$で$\overline{\Delta	(	a	;	r)}	\subset	D$かつ
+$\{f_n\}_{n=0}^\infty$が$\overline{\Delta	(	a	;	r)}$上一様収束するものがあるとする．
+$K$を$D$の任意のcompact部分集合とする．
+各点$a	\in	K$に対し，かかる性質をもつ$r_a	=	r>0$が存在する．
+$\{\Delta	(	a	;		r_\alpha)\}_{a	\in	K}$は$K$の開被覆であるから，
+有限個の$a_1	,	\cdots	,	a_l	\in	K$が存在し
+$K	\subset	\bigcup_{j=1}^l	\Delta	(	a_j	;	r_j)	\:	(r_j=r_{a_j})$.
+$\{f_n\}_{n=0}^\infty$は$\bigcup_{j=1}^l	\Delta	(	a_j	;	r_j	)$上一様収束しているので，
+$K$上一様収束する．
+
+（必要性）$\overline{\Delta(a_j	;	r_{a_j})}$はCompactであり，仮定より
+$\{f_n\}_{n=0}^\infty$が$\overline{\Delta	(	a;	r)}$上一様収束する．
+
+ⅱ）連続性は，各点$z	\in	D$で，$z$を中心とする円板$\Delta	(	z	;	r)	\Subset	D$をとり，
+そこに制限して考えれば十分である．したがってこれは定理$(2.2.1)$，
+ⅱ)よりただちにでる．
+\■
+
+$D$上の複素関数列$\{f_n\}_{n=0}^\infty$に対し，\textbf{広義一様有界}，
+\textbf{広義同程度連続}という概念を，$D$の任意のcompactな部分集合上$\{f_n\}_{n=0}^\infty$
+が一様有界，あるいは同程度連続であることと定義する．
+
+\定理{(2.2.6)}$D$を$\C$の開部分集合とする．
+$D$上の複素関数列$\{f_n\}_{n=0}^\infty$が広義一様有界かつ広義同程度連続であるならば，
+$D$上広義一様収束する部分列をもつ．
+
+証明のため，つぎの補題を用意する．
+
+\補題{(2.2.7)}$D$を$\C$の開部分集合とする．
+$D$の相対compactな開集合$U_n,	\quad	n=1,2,\cdots	,	$で次の性質のものが存在する．
+\begin{list}{}{}
+	\item	ⅰ) $\overline{U_n}	\Subset	U_{n+1},	\:	n=1,2,\cdots$.
+	\item	ⅱ) 任意のcompact部分集合$K	\Subset	D$に対し，ある$n$が存在して$K\subset U_n$.
+\end{list}
+\証明
+$z	\in	D$に対し
+\[
+	d(z;\partial	D)	=	\inf	\{|z-w|	\:	;	\;	w	\in	\partial	D	\}
+\]
+とおく(中心$z$で$D$に内接する円の半径をイメージする）．
+点列$w_n	\in	\partial	D,	\:	n=0,1,2,\cdots	,$を
+\[
+	|z	-	w_n|	\rightarrow	d(z;\partial	D)	\quad	(n	\rightarrow	\infty)
+\]
+となるようにとる．すると$\{w_n\}_{n=0}^\infty$は有界であるから，
+定理$(1.3.4)$より収束する部分列をもつ．したがって初めから$\lim	w_n	=	w_0$としてよい
+（あらかじめ点列$\{w_n\}_{n=0}^\infty$の第$0$項$w_0$には収束する部分列の収束点を指定しておく）．
+$\partial	D	\:	(=\overline{D}\setminus\ring{A})$は閉集合であるから，$w_0	\in	\partial	D$．
+よって
+\[
+	d(	z	;	\partial	D)	=	|z-w_0	|	=	\min	\{	|z-w|	\:	;	\:	w	\in	\partial	D	\}	>	0
+\]
+となる．このことから$r	>	0$に対し
+\[
+	D_r	=	\{z	\in	D	\:	;	\:	d(z;\partial	D)	>	r\}
+\]
+は開集合であることが以下のようにしてわかる．
+$D_r^c=\{	z	\in	D	\:	;	d(z	,\partial	D)	\leqq	r	\}$とおく
+（$d(z;\partial	D)=0	\Leftrightarrow	z	\in	\partial	D$）．
+$D_r^c$上の収束する点列$z_n	\in	D_r^c	\;	(n=1,2,\cdots),	\quad	z_n	\rightarrow	z_0	\:	(n	\rightarrow	\infty)$をとる．
+各$z_n$は$d(z_n	;	\partial	D)	\leqq	r$であるから，$d(z_n	;	\partial	D)	=	|z_n-w_n|$を満たす
+$w_n	\in	\partial	D$が存在する（保留）．
+$\{w_n\}_{n=0}^\infty$は有界であるから，収束する部分列
+$\{w_{n(k)}\}_{k=1}^\infty$をもつ．$w_{n(k)}	\rightarrow	w_0	\:	(k	\rightarrow	\infty)$とする．
+このとき$r_{n(k)}=|z_{n(k)}-w_{n(k)}|$は収束する．
+任意$k$に対して$r_{n(k)}	\leqq	r$であるから，
+\[
+	r_0	=	\lim_{k\rightarrow\infty}	r_{n(k)}=|z_0-w_0|	\leqq	r
+\]
+したがって
+\[
+	d(z_0,\partial	D)	\leqq	|z_0-w_0|	\leqq	r
+\]
+であるから，
+\[
+	z_0	\in	D_r^c	=	\overline{D}	-	D_r
+\]
+したがって$D_r^c$は閉集合であり，$D_r$は開集合である．
+
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=6cm,height=4cm]{fig11.bmp}
+	\caption{}
+	\label{fig11}
+\end{figure}
+そこで
+\[
+	U_n	=	D_{1/n}	\cap	\Delta(n)	,	\quad	n=1,2,\cdots
+\]
+とおく\footnote{$\Delta(n)=\Delta(0;n)$}．
+$\overline{U_n}$は有界で閉集合であるからcompact，
+$U_n	\subseteq	U_{n+1},\quad D_{1/n}	\subseteq	D_{1/(n+1)},\quad \overline{U_n}=\overline{D_{1/n}}\cap\overline{\Delta(n)}$
+であるから$\overline{U_n}	\subset	U_{n+1}$，ⅰ)を満たす．
+また$D	=	\bigcup_{n=1}^\infty	U_n$が成り立っているので，$K	\subset	$をcompactな集合とすると，
+$K	\subset \bigcup_{n=1}^\infty	U_n$であるから，$\{U_n\}_{n=1}^\infty$は$K$のopen covering.
+$K$はcompactであるから，$\exists	l	\in	\N$が存在して	$K \subset \bigcup_{n=1}^l U_n=U_l$.
+したがって，ⅱ)も満たされている．
+\■
+
+\textbf{定理(2.2.6)の証明}
+
+補題(2.2.7)のように$U_n$，$n=1,2,\cdots,$をとる．定理(2.2.3)
+\footnote{ 
+\定理{(2.2.3)}compact集合$A$上の一様有界かつ同程度連続な複素関数列$\{f_n\}_{n=0}^\infty$は
+$A$上一様収束する部分列をもつ．
+}より
+広義一様有界
+かつ広義同程度連続
+\footnote{ 
+定義の復習:$\{f_n\}_{n=0}^\infty$が広義一様有界(広義同程度連続)
+$\Leftrightarrow$$D$上の任意のコンパクト部分集合上で$\{f_n\}_{n=0}^\infty$
+が一様有界(同程度連続)であること．}
+\footnote{\small 定義の復習:同程度連続$\Leftrightarrow$
+$A$上の複素関数からなる族$\mathscr{F}$が\textbf{同程度連続}であるとは，
+任意の$\varepsilon	>	0$に対し，ある$\delta	>	0$が存在して，すべての
+$f	\in	\mathscr{F}$に対し
+\begin{equation}
+	z,w	\in	A,	\:	|z-w|<\delta	\Rightarrow	|f(z)-f(w)|	<	\varepsilon.
+\end{equation}
+}
+な関数列$\{f_n\}_{n=0}^\infty$より
+$\overline{U_1}$上一様収束するの部分列$\{f_{n(1)_\mu}\}_{\nu=0}^\infty$が
+とれる．同様にして$\overline{U_2}$上一様収束する$\{f_{n(1)_\nu}\}_{\nu=0}^\infty$の部分列
+$\{f_{n(2)_\nu}\}_{\nu=0}^\infty$をとる．
+これを繰り返して$\{f_{n(\mu-1)_\nu}\}_{\nu=0}^\infty$の部分列
+$\{f_{n(\mu)_\nu}\}_{\nu=0}^\infty$で$\overline{U_n}$上一様収束するものがとれる
+($\mu	=	1,2,\cdots)$．よって$\{f_n\}_{n=0}^\infty$の
+部分列$\{f_{n(\nu)_{\nu}}\}_{\nu=0}^\infty$は，各$\overline{U_n}$上一様収束している．
+したがって$\{f_{n(\nu)_\nu}\}_{\nu=0}^\infty$は$D$上広義一様収束する．
+\footnote{定義の復習:
+\textbf{広義一様収束}するとは，$D$の任意なコンパクト部分集合上$\{f_n\}_{n=0}^\infty$
+が一様収束することとする．
+}
+\■
+
+\問{1}
+$\overline{\Delta(1)}$上$f_n(z)=z^n$，$n=1,2,\cdots,$は同程度連続でない．
+
+\証明
+反例としてとして$w=1,z=e^{2	i	\pi	\theta}	\in	\overline{\Delta(1)}$の場合を考える($\theta	\in	\R$)．
+さらに$\theta >0$を無理数とすると$\{f_n(z)=z^n=e^{2	i	n	\pi	\theta}\}_{n=1}^\infty$は$C(0:1)$（中心$0$半径$1$の円）
+上稠密である(Herman Weyl)から，部分列$e^{2n	(\nu)	\pi	i	\theta}	\rightarrow	-1	\quad	(\nu	\rightarrow	+	\infty)$をとれる．
+このときある$\varepsilon=1>0$に対しては，
+$|(e^{2	\pi	i	\theta})^{n(\nu)}	-	1	|	\rightarrow	2$であることから，
+どのような$\delta	>	0$をとっても
+$|e^{2	i	\pi	\theta}	-1|<	\delta	$かつ，ある$\nu	>	1$で$|f_\nu(z)-f_\nu(w)|=|e^{2\pi	i	\nu	\theta}	-	1|	>	\varepsilon=1	$
+となり，
+$f_n$が同程度連続でないことがわかる．
+\■
+
+\問{2}
+集合$A	\subset	\C$上$\{f_n(z)\}_{n=1}^\infty$が一様有界かつ同程度連続ならば
+$g_n(z)=(1/n)\sum_{k=1}^n	f_k(z)$も一様有界かつ同程度連続である．
+
+\証明
+（保留）

@@ -1,0 +1,650 @@
+\documentclass[a4j,12pt]{jbook}
+\usepackage{amsmath,amsthm,amssymb}
+\title{{\LARGE Lie群 Lie環論}}
+\author{{\Large オレ}}
+\date{\today}
+%
+\def\labelenumi{(\arabic{enumi})}
+\def\qed{\hfill\hbox{\vrule height 12pt width 6pt }}
+\def\tr#1{\mathord{\mathopen{{\vphantom{#1}}^t}#1}}
+%
+%
+\def\bolda{\boldsymbol{a}}
+\def\boldb{\boldsymbol{b}}
+\def\boldc{\boldsymbol{c}}
+\def\boldu{\boldsymbol{u}}
+\def\boldv{\boldsymbol{v}}
+\def\boldw{\boldsymbol{w}}
+\def\boldx{\boldsymbol{x}}
+\def\boldy{\boldsymbol{y}}
+\def\boldz{\boldsymbol{z}}
+\def\bold0{\boldsymbol{0}}
+%
+\theoremstyle{definition}
+\newtheorem*{defn}{定義}
+\newtheorem{rem}{注意}
+\newtheorem{exm}{例}[chapter]
+\newtheorem{thm}{定理}[section]
+\newtheorem{lem}[thm]{補題}
+\newtheorem{cor}[thm]{系}
+\newtheorem{prop}[thm]{命題}
+%
+\renewcommand{\therem}{\arabic{rem}}
+%
+\begin{document}
+% \maketitle
+% \tableofcontents
+%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\chapter{位相群}%%%%
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{位相群の定義と基本的なこと}%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+\begin{defn}
+集合$G$が位相群であるとは、以下の条件をみたすこと:
+\begin{enumerate}
+ \item $G$は位相空間であり、かつ群でもある。\vspace{-10pt}
+ \item 写像 \vspace{-10pt}
+\begin{eqnarray*}
+G\times G\ni& (g,h)& \longmapsto g\cdot h \in G\\
+G\ni& g& \longmapsto g^{-1} \in G 
+\end{eqnarray*}
+は連続写像である。
+\end{enumerate}
+\end{defn}
+%
+\begin{defn}
+$G$を位相群、$g \in G$とするとき、次の写像を定義する:
+\begin{eqnarray*}
+&L_g:G \ni x \longmapsto g\cdot x \in G\\
+&R_g:G \ni x \longmapsto x\cdot g \in G\\
+&A_g=L_g\circ R_{g^{-1}}=R_{g^{-1}}\circ L_g
+\end{eqnarray*}
+$L_g$を左移動、$R_g$を右移動、$A_g$を共役という。\\
+\end{defn}
+%
+\noindent{\textbf{Exercise}}\hspace{10pt}これらはGの同相写像であることを示せ。（ほぼ自明）
+$\Box$\\ \\
+%
+\begin{prop}
+位相群Gの単位元eの開近傍全体を${\cal U}$とする。このとき次のことが成り立つ。
+\begin{enumerate}
+\item\;${\cal U}\neq \emptyset , \; U \in {\cal U} \Longrightarrow e \in U$ \vspace{-10pt}
+\item\;$U_1,U_2 \in {\cal U} \Longrightarrow U_1 \cap U_2 \in {\cal U}$ \vspace{-10pt}
+\item\;$\forall U \in {\cal U}, \; \exists V \in {\cal U}, \; s.t. $
+\begin{eqnarray*}
+V \cdot V^{-1} \subset U
+\end{eqnarray*}
+\item\;$ \forall U \in {\cal U}, \; \forall a \in U,\; \exists V \in {\cal U}, \; s.t.$
+\begin{eqnarray*}
+aV \subset U 
+\end{eqnarray*}
+\end{enumerate}
+\end{prop}
+%
+\noindent(証明)\hspace{10pt}
+(1),(2)は自明。(3),(4)は群演算の連続性から明らか。
+$\Box$ \\
+%
+\begin{lem}
+位相群Gは$T_3$分離公理をみたす。\\
+（このことからHausdorff性は出てこないことに注意）
+\end{lem}
+%
+\noindent(証明)
+位相群の均質性より、単位元$e$の任意の近傍$U$に対し、$e$の近傍$V$で、
+$\overline{V} \subset U$
+となるものが存在することを言えばよい。\\
+$e$の任意の近傍$U$をとる。$e\cdot e^{-1}=e$と積の連続性より、$e$の近傍$V$で
+$V \cdot V^{^1} \subset U$となるものが存在する。任意の$a \in \overline{V}$をとると、$aV \cap V \neq \emptyset$
+であるから、ある$b,c \in V$があって$a \cdot b = c$と表せる。このとき
+\begin{eqnarray*}
+a=c \cdot b^{-1} \in V \cdot V^{^1} \subset U
+\end{eqnarray*}
+すなわち$\overline{V} \subset U$である。
+$\Box$ \\
+%
+\begin{cor}
+位相群Gが$T_1$分離公理をみたせば、$G$は正則空間、とくにHausdorff空間である。
+$\Box$
+\end{cor}
+%
+\begin{prop}位相群$G$に対し、次は同値。
+\begin{enumerate}
+\item\;$G$はHausdorff空間 \vspace{-10pt}
+\item\;ある$x \in G$に対し$\{ x \}$は閉集合となる。\vspace{-10pt}
+\item\;$\bigcap_{U \in {\cal U}}U = \{ e \}$ 
+\end{enumerate}
+\end{prop}
+%
+\noindent(証明)
+(1)$\Longrightarrow$(2)は明らか。(2)$\Longrightarrow$(1)は、ある$x \in G$に対し$\{ x \}$が閉集合であれば、
+任意の$g \in G$に対し$L_{g x^{-1}}(\{ x \})=\{ g \}$が閉集合となることからわかる。\\
+(1)$\Longrightarrow$(3)\;$g \in \bigcap_{U \in {\cal U}}U,\; g \neq e$であれば$e$のある近傍$V$で$g \notin V$となるものが
+あり矛盾。(3)$\Longrightarrow$(1)\; 任意の$g \in G,\;g \neq e$と$e$が分離できることを示せばよい。$g \neq e$と仮定により
+$e$のある近傍$U$があって$g \notin U$となる。このとき$e$の近傍$V$で$V \cdot V^{-1} \subset U$となるものをとれば
+$gV \cap V = \emptyset$である。実際、この共通部分が元$x$を含めばある$y \in V$があって$x=g \cdot y$となる。すると
+$g=x \cdot y^{-1} \in V \cdot V^{-1} \subset U$となり矛盾。
+$\Box$
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{閉部分群、剰余群、準同型定理}%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\vspace{20pt}
+%
+%
+\begin{defn}
+位相群$G$の部分群$H$が閉集合であるとき、$G$の閉部分群という。
+\end{defn}
+%
+\begin{lem}
+$H$を位相群$G$の部分群とするとき、次が成り立つ:\vspace{-10pt}
+\begin{enumerate}
+\item\;$H$の閉包$\overline{H}$は部分群（従って閉部分群）である。\vspace{-10pt}
+\item\;$H$が$G$の正規部分群ならば、$\overline{H}$もそうである。\vspace{-10pt}
+\item\;$H$が開部分群であれば閉部分群でもある。
+\end{enumerate}
+\end{lem}
+%
+\noindent(証明)
+(1)\;$g,g' \in \overline{H}$とする。このとき$g^{-1}g'$の任意の近傍Uが$H$と交わればよい。$gU$は$g'$の近傍である
+から$gU \cap H \neq \emptyset$、よってある$h \in H$が存在して$g^{-1}h \in U$となる。すなわち$g \in hU^{-1}$である。
+よって$hU^{-1} \cap H \neq \emptyset$、これよりある$h' \in H$が存在して$hh^{'-1} \in U$となる。つまり$U \cap H \neq \emptyset$。\\
+(2)\;任意の$g \in G$に対し$g \overline{H} g^{-1} \subset \overline{H}$を示そう。任意の$x \in \overline{H}$に対し$gxg^{-1}$の
+任意の近傍$U$をとると$g^{-1}Ug \cap H \neq \emptyset$である。Hは正規部分群であるから$U \cap H =U \cap gHg^{-1}
+\neq \emptyset$、これは$gxg^{-1} \in \overline{H}$を示している。\\
+(3)$H$による剰余分解を考えれば明らか。
+$\Box$ \\ \\
+%
+\noindent{\textbf{Exercise}}\hspace{10pt}
+Hausdorff位相群$G$の中心$Z(G)$は閉部分群であることを示せ。
+$\Box$\\ \\
+%
+$H$を位相群$G$の正規部分群とするとき、剰余群$G/H$に射影$\pi : G \longmapsto G/H$からの商位相を入れれば
+$G/H$は位相群の構造が入る。実際、群演算の連続性は$\pi$で引き戻して考えれば$G$の群演算の連続性に帰着する。
+また$G/H$の任意の開集合$O$は、$\pi^{-1}(O)$が$G$の開集合となることから、$G$のある開集合$U$により$\pi(U)$と
+表されることがわかる。\\
+$G$が$G/H$へ自然に連続的に作用することをみよう。
+\begin{eqnarray*}
+T:G \times (G/H) \ni (g,xH) \longmapsto gxH \in G/H
+\end{eqnarray*}
+とおく。また$T_g:G/H \longmapsto G/H$を
+\begin{eqnarray*}
+T_g(xH)=gxH
+\end{eqnarray*}
+で定める。このとき次のことが成り立つ:\\
+%
+\begin{lem}　\\
+\indent(1)\;$T:G \times (G/H) \longrightarrow G/H$は連続。\vspace{3pt}\\
+\indent(2)任意の$g \in G$に対し$T_g:G/H \longmapsto G/H$は連続。\vspace{3pt}\\
+\indent(3)任意の$g,h \in G$に対し$T_g \circ T_h = T_{gh}$となる。\\
+\end{lem}
+%
+\noindent(証明）
+Exercise.（(3)は自明。(2)は(1)よりでる。）
+\;$\Box$ \\
+%
+\begin{lem}$G$を位相群、$H$を$G$の正規部分群とするとき、
+\begin{center}
+$G/H$がHausdorff $\Longleftrightarrow$ $H$は閉部分群
+\end{center}
+\end{lem}
+%
+\noindent(証明)
+$\Longrightarrow $ $eH \in G/H$とすると$\{ eH \}$は$G/H$の閉集合、よって$H=\pi^{-1}(\{ eH \})$はGの閉集合。\\
+$\Longleftarrow $ \; $aH,bH \in G/H,\; aH \neq bH$を任意にとる。このとき$b^{-1}a \neq H$であるから、$e$のある
+近傍$U$があって$b^{-1}aU \cap H = \emptyset$となる。そこで、$e$の近傍$V$を$(aV)^{-1}(bV) \subset b^{-1}aU$
+となるようにとれば$\pi(aV) \cap \pi(bV) = \emptyset$となる。実際、この共通部分の元$xH$が存在すれば
+$x \in aV \cap bV$、よって$e=x^{-1}x \in (aV)^{-1}(bV) \subset b^{-1}aU$となる。ところが$e \in H$でもあるから矛盾。
+$\Box$ \\
+%
+\begin{defn}$G_1,G_2$を位相群とする。写像$\phi: G_1\longrightarrow G_2$が位相群の準同型
+であるとは、$\phi$が群の準同型でありかつ連続写像であること。とくに群の同型となっているとき、位相群の同型写像という。
+以後$G_1 \cong G_2$で位相群として同型であることを表すことにする。\\
+\end{defn}
+%
+\begin{lem}
+$G$を位相群、$H$を正規部分群とする。このとき射影
+$$\pi:G \longrightarrow G/H$$
+は全射開準同型である。
+\end{lem}
+%
+\noindent(証明)明らか。\;
+$\Box$ \\
+%
+\begin{thm} (準同型定理1)\\
+$G_1,G_2$を位相群、$\phi:G_1 \longrightarrow G_2$を全射開準同型とするとき、位相群の同型
+$$G_1/\ker \phi \cong G_2$$
+が成り立つ。
+\end{thm}
+%
+\noindent(証明)
+\;Exercise.（群の同型があることは群の準同型定理からわかる。よって$\phi$の誘導する写像が連続かつ開写像であることを
+示せばよい。）$\Box$ \\
+%
+\begin{cor}(準同型定理2)\\
+$G_1$をコンパクト位相群、$G_2$をHausdorff位相群とし、$\phi:G_1 \longrightarrow G_2$を全射準同型とする。このとき、
+位相群の同型
+$$G_1/\ker \phi \cong G_2$$
+が成り立つ。$\Box$ \\
+\end{cor}
+%
+位相群の同型を言うには、全射準同型が開写像でなければならない。この系はそれが自動的に出てくるところが良い。しかし
+応用上、$G_1$がコンパクトであるという仮定は強すぎる。それを弱めるため、次の補題を使う。\\
+%
+\begin{lem}（Baireのカテゴリー定理）\\
+$X$を局所コンパクトHausdorff空間とし、$X$の可算個の閉集合の族$\{ X_n \}$によって
+$$X=\bigcup_{n=1}^{\infty}X_n$$
+と表されているとする。このとき少なくとも1つの$Xn$は内点を持つ。
+\end{lem}
+%
+\noindent(証明)
+すべての$Xn$が内点を持たないとする。Xは局所コンパクトなので、Xのある開集合$U_0$で$\overline{U_0}$がコンパクトな
+ものが存在する。このとき$U_0-X_1$は空ではない。局所コンパクトHausdorff空間の任意の点は相対コンパクト開近傍からなる基本
+近傍系をもつので、点$y_1 \in U_0-X_1$の相対コンパクトな開近傍$U_1$で$\overline{U_1} 
+\subset U_0-X_1$となるものがとれる。作り方より$\overline{U_1} \cap X_1=\emptyset$であり$\overline{U_1} \subset U_0$。
+次に、$U_1$と$X_2$に対して同様の考察をすれば、相対コンパクトな開集合$U_2$で$\overline{U_2} \cap X_2=\emptyset$かつ
+$\overline{U_2} \subset U_1$となるものがとれる。以下同様にして、Xの空でない相対コンパクト開集合の列$\{ U_n \}$を、
+$\overline{U_n} \cap X_n=\emptyset$かつ$\overline{U_n} \subset U_{n-1} $をみたすようにとることが出来る。
+$\overline{U_0} \supset \overline{U_1} \supset \overline{U_2} \supset \cdots $なので、（区間縮小法の一般化により）
+$\bigcap_{n=1}^{\infty}\overline{U_n}$は空でない。
+一方、$\overline{U_n} \cap X_n=\emptyset$であり$X=\bigcup_{n=1}^{\infty}X_n$であったから
+$(\bigcap_{n=1}^{\infty}\overline{U_n}) \cap X = \emptyset$すなわち$\bigcap_{n=1}^{\infty}\overline{U_n}= \emptyset$である。
+これは矛盾。ゆえに少なくとも1つの$Xn$は内点を持つ。
+$\Box$
+%
+\begin{thm}\label{thm:open map} (開写像定理)\\
+$G_1$は可算基をもつ局所コンパクトHausdorff位相群、$G_2$を局所コンパクトHausdorff位相群とする。このとき任意の全射準同型
+$\phi:G_1 \longrightarrow G_2$は開写像となる。
+\end{thm}
+%
+\begin{cor} (準同型定理3)\\
+$G_1$は可算基をもつ局所コンパクトHausdorff位相群、$G_2$を局所コンパクトHausdorff位相群とし、$\phi:G_1 \longrightarrow G_2$
+は全射準同型とする。このとき位相群の同型
+$$G_1/\ker \phi \cong G_2$$
+が成り立つ。$\Box$
+\end{cor}
+%
+\noindent(定理の証明)
+$V$を$G_1$の任意の開集合、$g_0$を$V$の任意の点とする。$G_1$の位相の仮定により、$G_1$の単位元$e$の近傍$U$を、
+$\overline{U}$はコンパクト、$g_0\cdot \overline{U}^{-1}\cdot \overline{U} \subset V$をみたすようにとれる。
+$\{ gU | g \in G_1 \}$は$G_1$の開被覆で、$G_1$は可算基をもつから、可算個の元を選んで$\{ g_nU | n=1,2, \cdots \}$は
+$G_1$の開被覆となるように出来る。このとき$G_2= \bigcup_{n=1}^{\infty}\phi(g_n \overline{U})$となるが、
+各$g_n \overline{U}$はコンパクトであるから、$G_2$のHausdorff性より各$\phi(g_n \overline{U})$は閉集合となる。
+よってBaireのカテゴリー定理より少なくとも一つの$\phi(g_k \overline{U})$は内点を持つ。
+$\phi(\overline{U})=g_k^{-1}\phi(g_k \overline{U})$より$\phi(\overline{U})$も内点をもつ。
+ゆえにある$x \in \overline{U}$を適当にとると$\phi(x)$は$\phi(\overline{U})$の内点である。
+ゆえに$\phi(g_0)=\phi(g_0) \cdot \phi(x)^{-1} \cdot \phi(x)$は$\phi(g_0)\phi(x)^{-1}\phi(\overline{U})=
+\phi(g_0x^{-1}\overline{U}) \subset \phi(V)$の内点である。$g_0$は任意でよいから$\phi$は開写像である。
+$\Box$ \\
+%
+\begin{exm}(一般線型群)\\
+$K$を体もしくは斜体としよう。念頭にあるのは$K=\Bbb R,\Bbb C,\Bbb H$のときである。$K$上の一般線型群$GL_n(K)$とは
+$$GL_n(K)=\{ A \in M_n(K) | \det A \neq 0 \}$$
+で定義されるのであった。$M_n(K)$を自然に$K^{n^2}$とみなして、$M_n(K)$のノルムを
+$$\| A \| = \sqrt{\sum_{i,j=1}^{n}a_{ij}^{\;\;\:2}}$$
+で定義しよう。このとき、次のことが成り立つ:
+\begin{lem}
+$A \in M_n(K)$が$ \| E-A \| < 1$をみたせば$A$は正則であり、
+$$A^{-1}=E+\sum_{k=1}^{\infty}(E-A)^k$$
+が成り立つ。
+\end{lem}
+\noindent(証明)
+$\| E-A \|=r$とおく。$0 \leq r < 1$である。右辺の部分和を$S_m=E+\sum_{k=1}^{m}(E-A)^k$とおく。すると、
+$$\| S_m \| \leq \|E\| + \sum_{k=1}^{m}\|E-A\|^k \leq \|E\| + \sum_{k=1}^{\infty}r^k=\|E\|+\frac{r}{1-r} \leq \infty$$
+であるから$\{S_m\}$は絶対収束する。極限を$S$としよう。
+$$AS_m=(E-(E-A))(E+(E-A)+(E-A)^2+ \cdots (E-A)^m)=E+(E-A)^{m+1}$$
+であるから
+$$\|AS_m-E\| \leq \|(E-A)^{m+1}\| \leq \|E-A\|^{m+1}=r^{m+1} \longrightarrow 0 \;\;(m\longrightarrow \infty)$$
+よって$AS=\lim_{m\rightarrow \infty}AS_m=E$であり、$S=A^{-1}$である。$\Box$ \\ \\
+これを用いて$GL_n(K)$が位相群であることを示そう。いま$\lim_{m \rightarrow \infty}A_m=A,\lim_{m \rightarrow \infty}B_m=B$
+であるとする。このとき$\{A_m\},\{B_m\}$は有界であるからある定数$M_A ,M_B$があって$\|A_m\| \leq M_A,\|B_m\| \leq M_B$
+となる。よって
+\begin{eqnarray*}
+\|A_mB_m-AB\| & \leq & \|A_m(B_m-B)\|+\|B(A_m-A)\| \\
+ & \leq & M_A\|B_m-B\|+\|B\|\|A_m-A\| \longrightarrow 0\;\;(m\longrightarrow \infty)
+\end{eqnarray*}
+これより積の連続性がいえた。次に逆元をとる操作の連続性をいおう。まず$\lim_{m\rightarrow \infty}A_m=E$のとき、任意の
+$\varepsilon >0$に対し$0 < r < \varepsilon /(1- \varepsilon)$なる$r$がとれて、この$r$に対しある$M>0$があって$m \geq M$ならば
+$\|A_m-E\|<r$となる。よって補題により
+$$ \|A_m^{-1}-E\| \leq \|\sum_{m=1}^{\infty}(E-A_m)^k\| \leq \sum_{m=1}^{\infty}\|E-A_m)\|^k < \sum_{m=1}^{\infty}r^m
+= \frac{r}{1-r} < \varepsilon $$
+となるので$\lim_{m\rightarrow \infty}A_m^{-1}=E$である。一般に$\lim_{m\rightarrow \infty}A_m=A$であるとき、
+$\lim_{m\rightarrow \infty}A^{-1}A_m=E$であるから、
+$$\lim_{m \rightarrow \infty}(A^{-1}A_m)^{-1}=\lim_{m \rightarrow \infty}A_m^{-1}A=E$$
+よって$\lim_{m \rightarrow \infty}A_m^{-1}=A^{-1}$である。これで$GL_n(K)$が位相群であることがわかった。\\
+$GL_n(K)$は位相空間$M_n(K)$の開集合である。これは$K=\Bbb R,\Bbb C$のときは$\det$の連続性よりただちにわかる。一般の斜体$K$について示そう。
+$A \in GL_n(K)$に対し$\varepsilon = 1/\|A^{-1}\|$とおく。$A$の$\varepsilon$近傍を$U_{\varepsilon}(A)$とおけば、任意の$B \in
+U_{\varepsilon}(A)$に対し
+$$\|A^{-1}B-E\| \leq \|A^{-1}(A-B)\| \leq \| A^{-1}\|\|A-B\| < 1$$
+よって$A^{-1}B$は正則、これより$B$も正則であり、$GL_n(K)$は$M_n(K)$の開集合である。
+\end{exm}
+%
+\begin{exm} ($GL_n(K)$の部分群)\\
+$GL_n(\Bbb R)=\{ A \in M_n(\Bbb R) | \det A \neq 0 \}$ 　(実一般線型群)\\
+$GL_n(\Bbb C)=\{ A \in M_n(\Bbb C) | \det A \neq 0 \}$ 　(複素一般線型群)\\
+$GL_n(\Bbb H)=\{ A \in M_n(\Bbb H) | $\;Aは正則$ \}$ 　(四元数一般線型群)\\
+$SL_n(\Bbb R)=\{ A \in GL_n(\Bbb R) | \det A =1\}$ 　(実特殊線型群)\\
+$SL_n(\Bbb C)=\{ A \in GL_n(\Bbb C) | \det A =1 \}$ 　(複素特殊線型群)\\
+$O(n)=\{ A \in GL_n(\Bbb R) |\; \tr{A}A =E \}$　(直交群)\\
+$U(n)=\{ A \in GL_n(\Bbb C) |\; A^{*}A =E \}$　(ユニタリ群)\\
+$SO(n)=\{ A \in O(n) | \det A=1\}$　(特殊直交群)\\
+$SU(n)=\{ A \in U(n) | \det A=1\}$　(特殊ユニタリ群)\\
+$Sp(n)=\{ A \in GL_n(\Bbb H) |\; A^{*}A=E \}$　(斜交群、またはシンプレクティック群)\\
+$Sp(2m,\Bbb R)=\{ A \in M_{2m}(\Bbb R) |\; \tr{A}J_mA=J_m\}$　(実斜交群)\\
+$Sp(2m,\Bbb C)=\{ A \in M_{2m}(\Bbb C) |\; \tr{A}J_mA=J_m\}$　(複素斜交群)\\
+$O(p,q)=\{ A \in GL_n(\Bbb R) |\; \tr{A}I_{p,q}A=I_{p,q} \}$　(擬直交群)\\
+$SO(p,q)=\{ A \in O(p,q) | \det A =1 \}$　(擬特殊直交群)\\
+ただし\\
+$J_m=\left(
+\begin{array}{cc}
+0 & -I_m \\
+I_m & 0
+\end{array}
+\right),
+I_{p,q}=\left(
+\begin{array}{cc}
+I_p & 0 \\
+ 0 & -I_q 
+\end{array}
+\right)$ \\ \\
+である。($I_n$はn次単位行列)\\ \\
+${\cal H}=\left \{ \left(
+\begin{array}{ccc}
+1 & a & b \\
+ & 1 & c \\
+ & & 1
+\end{array}
+\right) \;a,b,c \in \Bbb R \right \}$　(Heisenberg群)\\ \\ \\
+$GL_n(\Bbb R),SL_n(\Bbb R),SL_n(\Bbb C),O(n),U(n),SO(n),SU(n)$はすべて$GL_n(\Bbb C)$の
+閉部分群である。実際、$\det$の連続性から$SL_n(\Bbb C)=\det^{-1}(\{1\})$は$M_n(\Bbb C)$の閉集合。
+$M_n(\Bbb R)$は$M_n(\Bbb C)$の閉集合であるから、
+$SL_n(\Bbb R)=SL_n(\Bbb C) \cap M_n(\Bbb R)$も$M_n(\Bbb C)$の閉集合である。
+また$\Bbb R-\{0\}$は$\Bbb C-\{0\}$の閉集合なので$GL_n(\Bbb R)=\det^{-1}(\{\Bbb R-\{0\}\})$は$GL_n(\Bbb C)$の閉集合
+である。($M_n(\Bbb C)$においてはどうか？)\\
+$O(n)$について考えよう。$A=(a_{ij}(A))\in GL_n(\Bbb C)$が$O(n)$の元であるとは、\\
+$$\sum_{k=1}^{n}a_{ik}(A)a_{kj}(A)=\delta_{ij}\;\;(1 \leq i,j \leq n)$$
+となること。ここで$a_{ij}$は行列$A$の第$(i,j)$成分の値を返す連続関数とみている。これより$O(n)$は閉集合$\{ E \}$の連続
+関数による逆像であり、$M_n(\Bbb C)$の閉集合である。$U(n)$も同様に$M_n(\Bbb C)$の閉集合。$SO(n)=O(n) \cap SL_n(\Bbb R)
+,SU(n)=U(n) \cap SL_n(\Bbb C)$であるから、これらも$M_n(\Bbb C)$の閉集合である。\\ \\
+つぎにコンパクト性についてみてみよう。$O(n),U(n),SO(n),SU(n)$はすべて$M_n(\Bbb C) \cong \Bbb C^{n^2}$の閉集合である。
+よってこれらが有界であることがいえれば、コンパクトであることがわかる。それをみてみよう。\\
+$A \in O(n)$($U(n)$でも同様）とすると
+$$\sum_{k=1}^{n}a_{ik}a_{kj}=\delta_{ij}\;\;(1 \leq i,j \leq n)$$
+が成り立つのであった。このことから$|a_{ij}| \leq 1$である。従って、
+$$\|A\| \leq \sqrt{\sum_{i,j}|a_{ij}|^2} \leq n$$
+であり、$O(n),U(n)$は有界。$SO(n),SU(n)$はそれらの部分集合なのでもちろん有界。よって$O(n),U(n),SO(n),SU(n)$はすべて
+$M_n(\Bbb C)$の有界閉集合であり、コンパクトであることがわかる。同様に、$Sp(n),Sp(2m,\Bbb R),Sp(2m,\Bbb C)$もコンパクト
+であることがわかる。\\
+$GL(n,K),SL(n,K)$($K=\Bbb R,\Bbb C$)は$K^{n^2}$で有界でないからコンパクトではない。
+Heisenberg群${\cal H}$も有界でないからコンパクトではない。\\
+なお、$O(p,q),SO(p,q)$もコンパクトではない。このことは後で示す。
+\end{exm}
+%
+\begin{exm}
+$\Bbb R$は加法について位相群となる。$\Bbb R_{+}$は乗法について位相群となる。このことは明らかであろう。
+これらは指数関数、対数関数によって移り合い、位相群として同型である。\\$\Bbb R^n$も加法について位相群となる。特に
+$\Bbb C$は加法について位相群となる。$\Bbb H$は$\Bbb R$上の4次元ベクトル空間として$\Bbb R^4$と同型であるから、加法について
+位相群となる。$\Bbb C^{\times},\Bbb H^{\times}$も乗法について位相群となる。\\
+$\Bbb R$は可算基をもつ局所コンパクトHausdorff位相群である。準同型$f:\Bbb R \longrightarrow S^1$を$x \longmapsto e^{2 \pi i}$
+でさだめればこれは全射連続で、群の準同型である。よって位相群の全射準同型である。$S^1$はコンパクトHausdorffであるから、
+準同型定理3により位相群としての同型
+$$\Bbb R/\ker f=\Bbb R/\Bbb Z \cong S^1$$
+が成り立つ。
+\end{exm}
+%
+\begin{exm}
+$K=\Bbb R,\Bbb C$としよう。$M_n(K)\cong K^{n^2}$は可算基をもつので、その部分空間も可算基をもつ。
+また、$M_n(K)\cong K^{n^2}$は局所コンパクトHausdorff空間であり、その開部分集合も局所コンパクトHausdorffとなる。よって
+$GL_n(K)$は可算基をもつ局所コンパクトHausdorff空間である。いま$\det:GL_n(K) \rightarrow K^{\times}$を考えればこれは
+全射連続写像であり、群の準同型である。よって準同型定理3により位相群としての同型
+$$ GL_n(\Bbb R)/SL_n(\Bbb R) \cong \Bbb R^{\times} $$ 
+$$ GL_n(\Bbb C)/SL_n(\Bbb C) \cong \Bbb C^{\times} $$ 
+が成り立つ。\\
+$\det$を$O(n),U(n)$に制限して考えよう。すでに見たように$O(n),U(n)$はコンパクト位相群であり、$S^0,S^1$はHausdorffであるから、
+準同型定理2により位相群の同型
+$$ O(n)/SO(n) \cong S^0=\{x \in \Bbb R | |x|=1 \}=\{ \pm 1 \}$$ 
+$$ U(n)/SU(n) \cong S^1=\{x \in \Bbb C | |x|=1 \} $$ 
+が成り立つ。
+\end{exm}
+%
+\begin{exm}
+位相群としての同型
+$$SO(2) \cong S^1 \cong \Bbb R/ \Bbb Z$$
+が成り立つ。これを示そう。$\Bbb R$は可算基をもつ局所コンパクトHausdorff、SO(2)はコンパクトHausdorffなので
+$\Bbb R$から$SO(2)$への全射準同型を構成すればよい。
+$$f:\Bbb R \ni \theta \longmapsto \left(
+\begin{array}{cc}
+\cos \theta & -\sin \theta \\
+\sin \theta  & \cos \theta
+\end{array}
+\right)
+\in SO(2)$$
+とおこう。これが群の準同型なのは容易にわかる。全射なのも線型代数の基本事項であろう。連続性も明らか。
+よって上の同型が成り立つ。
+\end{exm}
+%
+\begin{exm}(Affine変換群とEulid群)\\
+$A \in GL_n(\Bbb R),\gt{\bf b} \in \Bbb R^n$に対し、
+$$(A,{\bf b}):\Bbb R^n \ni {\bf x} \longmapsto A{\bf x}+{\bf b} \in \Bbb R^n$$
+と定める。このような変換の全体がなす群を$\textrm{\boldmath Aff}(\Bbb R^n)$と書き、Affin変換群という。\\
+一方、直積$GL_n(\Bbb R) \times \Bbb R^n$に、積構造を
+$$(A_1,{\bf b_1}) \cdot (A_2,{\bf b_2})=(A_1A_2,\;A_1{\bf b_2}+{\bf b_1})$$
+で定める。すなわち$GL_n(\Bbb R)$の$\Bbb R^n$への自然な作用により半直積の構造を入れる。
+このとき、群としての同型
+$$GL_n(\Bbb R) \ltimes \Bbb R^n \cong \textrm{\boldmath Aff}(\Bbb R^n)$$
+が成り立つ。この同型が同相写像となるように位相を定めることで$\textrm{\boldmath Aff}(\Bbb R^n)$は位相群となる。
+$\textrm{\boldmath Aff}(\Bbb R^n)$は可算基をもつ局所コンパクトHausdorff位相群である。\\
+$\pi:GL_n(\Bbb R) \ltimes \Bbb R^n \longrightarrow GL_n(\Bbb R)$を第1成分への射影とすれば$\pi$は全射開準同型であり、
+$\ker \pi$は$\Bbb R^n$であるから、準同型定理1により位相群の同型
+$$\textrm{\boldmath Aff}(\Bbb R^n)/\Bbb R^n \cong GL_n(\Bbb R)$$
+が成り立つ。\\
+$GL_n(\Bbb R) \ltimes \Bbb R^n$の部分群$O(n) \ltimes \Bbb R^n$、すなわち$\Bbb R^n$の等長変換のなす群をEuclid群といい、
+$\textrm{\boldmath Euclid}(n)$で表す。位相群として
+$$\textrm{\boldmath Euclid}(n)/\Bbb R^n \cong O(n)$$
+である。
+\end{exm}
+%
+\begin{exm}3次元球面$S^3$ \vspace{5pt}\\
+四元数体$\Bbb H$は$M(2,\Bbb C)$の部分環として埋め込むことが出来る。実際、
+$$\Bbb H=\left\{\left(
+\begin{array}{cc}
+z & -\overline{w} \\
+w & \overline{z}
+\end{array}
+\right) \left. \right|\;z,w \in \Bbb C \right\}$$
+とおけば、
+$${\bf i}=\left(
+\begin{array}{cc}
+i & 0 \\
+0 & -i
+\end{array}
+\right),\;
+{\bf j}=\left(
+\begin{array}{cc}
+0 & -1 \\
+1 & 0
+\end{array}
+\right),\;
+{\bf k}=\left(
+\begin{array}{cc}
+0 & -i \\
+-i & 0
+\end{array}
+\right)$$
+と単位行列${\bf 1}$が$\Bbb R$上の基底となる。積は行列の積に対応している。$\|q\|=\sqrt{|z|^2+|w|^2}$とおけばこれは
+四元数の通常のノルムに対応する。
+$q \in \Bbb H$に対し$\overline{q}$を行列としての
+エルミート共役とすれば明らかに$\overline{q}\in \Bbb H$であり、$q \neq 0$のとき
+$$q^{-1}=\frac{\overline{q}}{\|q\|}$$
+となっている。よって、乗法群$\Bbb H^{\times}=\Bbb H-\{0\}$は$GL(2,\Bbb C)$の部分群とみなせる。\\
+$\Bbb H^{\times} \subset \Bbb H \cong \Bbb R^4$とみたときと、$\Bbb H^{\times}\subset GL(2,\Bbb C)$とみたときとは
+位相群として同型であることを示そう。これらを区別するため前者を$\tilde{\Bbb H}^{\times}$とおいて$\psi$を
+$$\psi:\tilde{\Bbb H}^{\times} \ni x+yi+zj+wk \longmapsto \left(
+\begin{array}{cc}
+u & -\overline{v} \\
+v & \overline{u}
+\end{array}
+\right) \in \Bbb H^{\times}$$
+と定める。ただし$u=x+yi,v=z+wi \in \Bbb C$とする。$\psi$は乗法群としての群の同型になっている。実際、$\psi$により基底$1,i,j,k$
+は${\bf 1},{\bf i},{\bf j},{\bf k}$に移り、関係式
+$${\bf i}^2={\bf j}^2={\bf k}^2={\bf i}{\bf j}{\bf k}=-{\bf 1}$$
+が成り立っているからである。また$\psi,\psi^{-1}$は明らかに連続であるから$\psi$は位相群としての同型である。\\
+$S^3\subset \Bbb R^4 \cong \Bbb C^2$は$\tilde{\Bbb H}^{\times}$の部分群$\{q \in \tilde{\Bbb H}^{\times} |\;\|q\|=1\}$
+とみなせる。$x+yi+zj+wk \in S^3$に対し
+$$\det \psi(x+yi+zj+wk)=\det\left(
+\begin{array}{cc}
+u & -\overline{v} \\
+v & \overline{u}
+\end{array}
+\right)=|u|^2+|v|^2=x^2+y^2+z^2+w^2=1$$
+よって、$\psi(S^3)=SL(2,\Bbb C) \cap \Bbb H=SU(2)$となるから、$S^3$は$SU(2)$と同型な位相群である。
+\end{exm}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{位相群の等質空間}%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\vspace{20pt}
+%
+\begin{lem}
+位相群$G$は位相空間$X$に連続作用しているとする。$X$がHausdorff空間ならば
+任意の$x \in X$における等方部分群$G_x=\{ g \in G | g\cdot x =x\}$は$G$の閉部分群である。
+\end{lem}
+%
+\noindent(証明)
+写像$G \ni g \longmapsto g\cdot x \in X$は連続であり、$\{x\}$は閉集合であるから。
+$\Box$
+%
+\begin{prop}
+Hausdorff空間$X$は、コンパクト位相群$G$の等質空間とする。このとき
+任意の$x \in X$に対し、位相空間としての同相
+$$G/G_x \cong X$$
+が成り立つ。
+\end{prop}
+%
+\noindent(証明)
+連続写像$\phi:G \longrightarrow X$を$g \longmapsto g\cdot x$で定める。$G$の作用の推移性より$\phi$は全射。
+また明らかに$\ker \phi=G_x$である。$\phi$が誘導する写像$\overline{\phi}:G/G_x \longrightarrow X$を考えると、
+$\overline{\phi} \circ \pi=\phi$である。ただし$\pi:G \rightarrow G/G_x$は射影。よって$\phi$の連続性より$\overline{\phi}$
+は連続である。よって$\overline{\phi}$はコンパクト空間からHausdorff空間への連続全単射となり、同相写像である。
+$\Box$ \\ \\
+%
+準同型定理の場合のように、上の命題も変換群$G$のコンパクト性の仮定を弱めることが出来る。
+%
+\begin{thm}
+局所コンパクトHausdorr空間$X$は、可算基をもつ局所コンパクトHausdorff位相群$G$
+の等質空間とする。このとき任意の$x \in X$に対し位相空間としての同相
+$$G/G_x \cong X$$
+が成り立つ。
+\end{thm}
+%
+\noindent(証明)
+本質的なところは開写像定理(\ref{thm:open map})と同様である。というのも、この定理の証明から開写像定理が得られるからである。
+さて、$x \in X$を任意にとり固定し、連続写像$\phi:G \longrightarrow X$を$g \longmapsto g\cdot x$で定める。
+作用の推移性より$\phi$は全射。$\phi$が開写像であることを示そう。
+$V$を$G$の任意の開集合、$g_0$を$V$の任意の点とする。$G$の位相の仮定により、$G$の単位元$e$の近傍$U$を、
+$\overline{U}$はコンパクト、$g_0\cdot \overline{U}^{-1}\cdot \overline{U} \subset V$をみたすようにとれる。
+$\{ gU | g \in G \}$は$G$の開被覆で、$G$は可算基をもつから、可算個の元を選んで$\{ g_nU | n=1,2, \cdots \}$は
+$G$の開被覆となるように出来る。このとき$X= \bigcup_{n=1}^{\infty}\phi(g_n \overline{U})$となるが、
+各$g_n \overline{U}$はコンパクトであるから、各$\phi(g_n \overline{U})$は$X$の閉集合となる。
+よってBaireのカテゴリー定理より少なくとも一つの$\phi(g_k \overline{U})$は内点を持つ。
+$\phi(\overline{U})=g_k^{-1}\phi(g_k \overline{U})$より$\phi(\overline{U})$も内点をもつ。
+よってある$h \in \overline{U}$を適当にとると$\phi(h)=h \cdot x$は$\phi(\overline{U})$の内点である。
+ゆえに$\phi(g_0)=\phi(g_0) \cdot \phi(h)^{-1} \cdot \phi(h)$は$\phi(g_0)\phi(h)^{-1}\phi(\overline{U})=
+\phi(g_0h^{-1}\overline{U}) \subset \phi(V)$の内点である。$g_0$は任意でよいから$\phi(V)$は開集合となり、$\phi$は開写像
+である。\\
+$\phi$が誘導する写像$\overline{\phi}:G/G_x \longrightarrow X$を考えると$\overline{\phi} \circ \pi=\phi$であるから
+$\phi$の連続性より$\overline{\phi}$は連続である。$O$を$X$の任意の開集合とすると、$G$のある開集合$W$によって$O=\pi(W)$
+と表せる。$\phi$が開写像であることから$\phi(W)=\overline{\phi}\circ \pi(\pi^{-1}(O))=\overline{\phi}(O)$は$X$の開集合、よって
+$\overline{\phi}$は開写像であり、同相写像であることが示された。
+$\Box$
+%
+\begin{exm}
+次の同相が成り立つ:
+$$O(n)/O(n-1)\cong S^{n-1},\;\;SO(n)/SO(n-1)\cong S^{n-1}$$
+$$U(n)/U(n-1)\cong S^{2n-1},\;\;SU(n)/SU(n-1)\cong S^{2n-1}$$
+これを示そう。$O(n),SO(n)$は$S^{n-1} \subset \Bbb R^n$に、$U(n),SU(n)$は$S^{2n-1} \subset \Bbb C^n$に、自然に連続的に作用している。
+これらの作用の推移性を示そう。いま$S^{n-1}$の北極を${\bf p}=(0,\cdots ,0,1)$とする。
+任意の${\bf x} \in S^{n-1}$が、ある$A \in O(n)$により${\bf p}$に
+移ることを示そう。${\bf x}$を用いて$\Bbb R^n$の正規直交基底$({\bf x_1},\cdots,{\bf x_{n-1}},{\bf x})$をつくる。これを
+並べた行列を$A$とすれば$A{\bf p}={\bf x}$であり、$A \in O(n)$である。もし$\det A=-1$ならば、${\bf x_1}$の符号を逆にすれば
+$\det A=1$に出来る。よって$O(n),SO(n)$の作用は推移的である。$U(n),SU(n)$のときも全く同様である。\\
+${\bf p}$における等方部分群を考えてみよう。$A \in O(n)$が$A{\bf p}={\bf p}$をみたせば、
+$$A = \left(
+\begin{array}{cccc}
+ & & & 0 \\
+ & A_{n-1}  & & \vdots \\
+ & & & 0 \\
+0 & \cdots & 0 & 1
+\end{array}
+\right)$$
+の形であり、$A_{n-1}$は$O(n-1)$の元である。逆にこのような形の元が${\bf p}$を固定することは明らか。よって等方部分群は
+$O(n-1)$と自然に同一視できる。これは$SO(n),U(n),SU(n-1)$のときも全く同様である。よって定理1.17から求める同相が得られる。
+\end{exm}
+%
+\begin{exm}　\\
+$\textrm{\boldmath Aff}(\Bbb R^n),\textrm{\boldmath Euclid}(n)$はともに$\Bbb R^n$に連続に推移作用する。
+各々の作用において、原点0における等方部分群はそれぞれ$GL_n(\Bbb R^n),O(n)$であることは明らか。よって同相
+$$\textrm{\boldmath Aff}(\Bbb R^n)/GL_n(\Bbb R) \cong \Bbb R^n$$
+$$\textrm{\boldmath Euclid}(n)/O(n) \cong \Bbb R^n$$
+が成り立つ。
+\end{exm}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{位相群の連結性}%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\vspace{20pt}
+%
+\begin{lem}
+$G$を連結な位相群とし、$U$を単位元$e$の近傍とする。もし$U=U^{-1}$であれば、
+$$G=\bigcup_{k=1}^{\infty}U^k$$
+が成り立つ。特に、$e$の任意の近傍は$G$を生成する。
+\end{lem}
+%
+\noindent(証明)
+$H=\bigcup_{k=1}^{\infty}U^k$とおく。任意の$k$に対し$U^k$は開集合であるから、$H$は開集合である。
+$U=U^{-1}$と$U^k\cdot U^l \subset U^{k+l}$より$H=H^{-1},H\cdot H \subset H$よって$H$は$G$の部分群である。
+開部分群は閉部分群なので、$H=G$である。\\
+$V$を$e$の任意の開近傍とすると、$V \cap V^{-1}=U$とおけば$U$も$e$の開近傍で$U=U^{-1}$をみたす。
+$\Box$
+%
+\begin{prop}
+$G$を位相群、$H$を$G$の正規部分群とする。このとき$H,G/H$がともに連結ならば$G$も連結である。
+\end{prop}
+%
+\noindent(証明)
+$G=O_1 \cup O_2,O_1 \cap O_2 = \emptyset,$で$O_1,O_2$はともに開集合、と表せたとする。まず
+$\pi(O_1) \cap \pi(O_2) = \emptyset$を示そう。ただし$\pi:G \rightarrow G/H$は射影。$gH \in \pi(O_1) \cap \pi(O_2)$が
+とれたとすると、$g_1 \in O_1,g_2 \in O_2$で$gH=g_1H=g_2H$となるものがある。このとき$gH=(g_1H \cap O_1) \cup (g_2H \cap O_2)$
+であり、$g_1 \in gH \cap O_1,g_2 \in H \cap O_2$よりこれらは$gH$の空でない開集合である。
+ところが$H$の連結性より$gH$も連結であるから、これは矛盾。ゆえに$\pi(O_1) \cap \pi(O_2) = \emptyset$である。\\
+$G/H=\pi(O_1) \cup \pi(O_2)$であり、$G/H$は連結であるから$\pi(O_1)$と$\pi(O_2)$うち一方は空集合である。よって
+$O_1,O_2$の一方は空集合であり、$G$の連結性がいえた。
+$\Box$\\
+%
+\begin{defn}
+$G$を位相群とするとき、$G_0$で単位元$e$を含む連結成分を表す。容易にわかるように、
+$g \in G$を含む連結成分は$gG_0$である。\\
+\end{defn}
+%
+\begin{prop}
+$G$を位相群とするとき次のことが成り立つ:\vspace{5pt}\\
+\indent(1)\;$G_0$は$G$の正規閉部分群である。特に$G/G_0$はHausdorff位相群である。\vspace{3pt}\\
+\indent(2)\;$G/G_0$の単位元$\overline{e}$を含む連結成分$(G/G_0)_0$は$\{ \overline{e} \}$である。\vspace{3pt}\\
+\indent(3)\;$G$が局所連結な位相群であれば、剰余群$G/G_0$は離散位相をもつ。\vspace{3pt}
+\end{prop}
+%
+\noindent(証明)\;
+(1)$g,h \in G_0$とすると、$g^{-1}G_0$は$G$の連結成分であって$e$を含む。すなわち$G_0=g^{-1}G_0$であり、$g^{-1}h \in 
+G_0$よって$G_0$は部分群である。任意の$g \in G$に対し$gG_0g^{-1}$は$e$を含む連結成分なので$

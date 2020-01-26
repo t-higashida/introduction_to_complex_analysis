@@ -1,0 +1,183 @@
+\section{関数項級数}
+
+以後関数とは複素関数をいうものとする．部分集合$A	\subset	\C$上の関数列
+$\{f_n\}_{n=0}^\infty$をもって，形式的に無限和$\sum_{n=0}^\infty$の形で表したものを
+\textbf{関数項級数}とよぶ．番号$N	(=0.1.\cdots)$に対し和
+$s_N	=	\sum_{n=0}^N	f_n$を$N-$有限和とよび，関数列$\{s_N\}_{N=0}^\infty$が
+点$z	\in	A$で収束するとき，関数項級数$\sum_{n=0}^\infty	f_n$は$z$で収束するといい
+\[
+	\lim_{N\rightarrow\infty}	s_N(z)	=	\sum_{n=0}^\infty	f_n(z)
+\]
+と書く．$A$の任意の点で$\{s_N\}_{N=0}^\infty$が収束するとき，
+関数項級数$\sum_{n=0}^\infty	f_n$は$A$上収束するといい，その極限関数を
+\[
+	\lim_{N\rightarrow\infty}s_N	=	\sum_{n=0}^\infty	f_n
+\]
+と書く．$\sum_{n=0}^\infty	f_n$，$\sum_{n=0}^\infty	g_n$が収束するとき，
+定数$a,b	\in	\C$に対して
+\[
+	\sum_{n=0}^\infty	(a	f_n	+	b	g_n)	=	a	\sum_{n=0}^\infty	f_n	+	b	\sum_{n=0}^\infty	g_n.
+\]
+$\sum_{n=0}^\infty	f_n$が点$z	\in	A$で（または，$A$上）\textbf{絶対収束}するとは
+$\sum_{n=0}^\infty	|f_n(z)|$（または，$\sum_{n=0}^\infty	|f_n|$）が収束することとする．
+つぎは明らかである．
+
+
+	\定理{(2.3.1)}(1.3.8)，ⅲ),ⅳ)は関数項級数$\sum_{n=0}^\infty	f_n$に対しても
+1点$z	\in	A$で，または$A$上で成立する．
+\footnote{\small
+\定理{(1.3.8)}
+\begin{list}{}{}
+	\item	ⅰ)	級数$\sum_{n=0}^\infty	z_n$が収束することとコーシー条件を満たすことは同値である．
+	\item	ⅱ) $\sum_{n=0}^\infty	z_n$が収束するならば，$\lim_{n\rightarrow\infty}	z_n	=	0$．
+	\item	ⅲ) $\sum_{n=0}^\infty	z_n$が絶対収束するならば，それは収束する．
+	\item	ⅳ) 絶対収束級数は項を並べ替えても絶対収束し，極限は変わらない．
+\end{list}
+}
+\□
+$A$上の関数項級数$\sum_{n=0}^\infty	f_n$が$A$上一様収束するとは，その$N$-有限和の
+列$\{s_N\}_{N=0}^\infty$が$A$上一様収束することとする．
+
+\定理{(2.3.2)}
+$\sum_{n=0}^\infty	f_n$が$A$上一様収束するためにつぎは必要十分条件である．
+任意の$\varepsilon	>	0$に対し，ある番号$n_0$が存在して，すべての$n	>	m	\geqq	n_0$
+と$z	\in	A$に対し
+\[
+	\left|	\sum_{j=m}^n	f_j(z)	\right|	<	\varepsilon.
+\]
+このとき，すべての$f_n$が連続ならば極限関数$\sum_{n=0}^\infty	f_n$も連続である．
+
+\証明
+必要を示す．
+$\sum_{n=0}^\infty	f_n	=	f$が一様収束しているとする．仮定より，
+任意の$\varepsilon	>	0$に対し，ある番号$n_0$があってすべて$n	\geqq	n_0$と$z	\in	A$に対し
+\[
+	\left|	\sum_{j=0}^n	f_j(z)	-	f(z)	\right|	<	\varepsilon
+\]
+$	n	>	m	\geqq	n_0+1$を任意にとると
+\begin{align*}
+	\left|	\sum_{j=m}^n	f_j(z)	\right|
+	&=
+	\left|	
+		\sum_{j=0}^n	f_j(z)	-	f(z)	-	\left(	\sum_{j=0}^{m-1}	f_j(z)-f(z)	\right)	
+	\right|	\\
+	&	\leqq
+	\left|	\sum_{j=0}^n	f_j(z)	-	f(z)	\right|	+
+	\left|	\sum_{j=0}^{m-1}	f_j(z)-f(z)	\right|	<	2	\varepsilon.
+\end{align*}
+よって必要性は示された．
+
+十分性を示そう．
+各$z	\in	A$に対し級数$\sum_{n=0}^\infty	f_n(z)$はCauchy条件を満たしているから，
+定理(1.3.8)，ⅰ)により収束している．以下，一様収束することを示す．
+$f=\sum_{n=0}^\infty	f_n$とおく．
+任意の$\varepsilon	>0$に対し，番号$n_0$があってすべての$n	>	m	\geqq	n_0$と
+$z	\in	A$に対し
+\[
+	\left|
+		\sum_{j=0}^n	f_j(z)	-	\sum_{j=0}^m	f_j	(z)
+	\right|
+	=
+	\left|
+		\sum_{j=m+1}^n	f_j	(z)	
+	\right|
+	<	\varepsilon.
+\]
+ここで$n	\rightarrow	\infty$として
+\[
+	\left|	f(z)	-	\sum_{j=0}^m	f_j	(z)	\right|	\leqq	\varepsilon.
+\]
+よって$\sum_{j=0}^\infty	f_j$は$f$に一様収束している
+\footnote{定義の復習：
+$\{f_n\}_{n=0}^\infty$が\textbf{一様収束}しているとは，
+任意の$\varepsilon	>0$に対しある番号$n_0$が存在して，
+すべての$n	\geq	n_0$と$z	\in	A$に対し
+\[
+	|f_n(z)-f(z)|	<	\varepsilon.
+\]
+}.
+任意の$f_n$は連続であるから$S_N=\sum_{j=0}^\infty	f_j$は連続である．
+よって定理(2.2.1)，ⅱ)より極限関数$f$は$A$上で連続である．
+\■
+
+$A$上の関数項級数$\sum_{n=0}^\infty	f_n$と正項級数$\sum_{n=0}^\infty	M_n	\:	(M_n	\in	\R,M_n	\geqq	0)$
+に対し，$\sum_{n=0}^\infty	M_n$が$\sum_{n=0}^\infty	f_n$の\textbf{優級数}であるとは，
+\[
+	|f_n	(z)	|	\leqq	M_n,	\quad	z	\in	A,	n=0,1,\cdots	.
+\]
+となることである．
+つぎの定理は\textbf{優級数判定法}または\textbf{$M$-判定法}とよばれ，
+単純ではあるが有用な収束判定法である．
+
+\定理{(2.3.3)}\textbf{ (Weierstrassの) $M$-判定法}
+
+$A$上の関数項級数$\sum_{n=0}^\infty	f_n$は，次の(1)(2)を満たす実数列
+$M_1,M_2, \cdots$が存在するならば，
+$A$上で$\sum_{n=0}^\infty	f_n(z)$は絶対かつ一様収束する．
+\begin{list}{}{}
+\item	(1)  $\displaystyle \sum_{n=1}^\infty M_n$は$\displaystyle\sum_{n=0}^\infty	f_n$の優級数である．
+\item (2)  $\displaystyle \sum_{n=1}^\infty M_n$は収束する．
+\end{list}
+
+\証明
+$S_N=\sum_{n=0}^N	|f_n(z)|$とする．$S_N	\leqq	\sum_{n=0}^N	M_n$である．$\sum_{n=0}^\infty	M_n$は収束するから，
+任意の$\varepsilon >0$に対して或る$N_0	\in	\N$が存在して，
+$
+	N	>	N'	>	N_0	\Rightarrow	\left|	\sum_{n=0}^N M_n	-	\sum_{n=0}^{N'}	M_n	\right|	<	\varepsilon 
+$である．同じ$N,N'$に対して
+\[
+	|S_N-S_{N'}|	=			S_N-S_{N'}
+								=			\sum_{n=N'+1}^N	|f_n(z)|
+								\leqq	\sum_{n=N'+1}^N	M_n
+								=	\left|	\sum_{n=0}^N M_n	-	\sum_{n=0}^{N'}	M_n	\right|	<	\varepsilon
+\]
+であるから，$\sum_{n=0}^\infty	|f_n(z)|$は収束，すなわち$\sum_{n=0}^\infty	f_n(z)$は
+絶対収束する．
+さらに$s_N=\sum_{n=0}^N$とおくと，
+\[
+	\left|\sum_{n=N}^{N'}	f_j(z)	\right|	
+	=			|s_N	-	s_{N'}|	
+	\leqq	|S_N	-	S_{N'}|
+\]
+であるから，定理(2.3.2)より一様収束する．
+\■
+(1)(2)を満たす$\{M_n\}_{n\in \N}$が存在する場合，$\displaystyle \sum_{n=0}^\infty f_n(z)$
+$A$上に\textbf{正規収束する}という．
+
+開集合$D	\subset	\C$上の関数項級数$\sum_{n=0}^\infty	f_n$に対し，
+その$N$-有限和の列$\{s_N\}_{N=0}^\infty$が$D$上広義一様収束しているとき，
+$\sum_{n=0}^\infty	f_n$は$D$上\textbf{広義一様収束}しているという．
+つぎの定理も明らかであろう．
+
+\定理{(2.3.4)}
+$D$上の連続関数$f_n$を項とする関数項級数$\sum_{n=0}^\infty	f_n$が広義一様収束するならば，
+極限関数は連続である．
+
+\証明
+$S_N(z)=\sum_{n=0}^N	f_n(z)$はすべて$D$で連続である．
+$S_N(z)$は広義一様収束するから$\displaystyle	S(z)	=	\lim_{n\rightarrow	\infty}	S_n(z)$とする．
+$z_0	\in	D$を任意に選んで$S(z)$が$z_0$で連続であることをいえばよい．
+即ち
+$\forall	\varepsilon >	0$に対して或る$\varepsilon (\varepsilon )	>0$が存在して，
+$\forall	z	\in	D$に対して
+$
+	|z-z_0|	<	\delta (\varepsilon )	
+		\Rightarrow	
+	|S(z)-S(z_0)|	<	\varepsilon $
+であることを示せば良い．
+よって，
+$
+	|S(z)-S(z_0)|	\leqq		|S(z)	-	S_N(z)|	
+											+	|S_N(z)-S_N(z_0)|
+											+	|S_N(z_0)	-	S(z_0)|
+$．
+
+ここで
+(1)仮定より任意の$z	\in	S$において$|S(z)	-	S_N(z)|	<	\varepsilon /3$，
+(2)任意の$N	\in	\N$に対して$S_N(z)$は$z_0$で連続であるから，
+或る$\delta(\varepsilon )	>0$を
+$|z-z_0|<\delta(\varepsilon )	\Rightarrow	|S_N(z)-S_N(z_0)|<	\varepsilon /3$
+となるように定められる，
+(3)$S_N(z_0)-S(z_0)|	<	\varepsilon /3$，
+故に$\displaystyle	S(z)=\lim_{n\rightarrow	\infty}	S_n(z)$は連続である．
+\■
